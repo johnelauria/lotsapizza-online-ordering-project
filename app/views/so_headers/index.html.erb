@@ -1,0 +1,55 @@
+<h1>Listing so_headers</h1>
+
+<table class="table">
+  <tr>
+    <th>Outlet code</th>
+    <th>Company code</th>
+    <th>Outlet name</th>
+    <th>Customer name</th>
+    <th>Delivery group</th>
+    <th>So number</th>
+    <th>Order date</th>
+    <th>Delivery date</th>
+    <th>Production date</th>
+    <th>Total order amount</th>
+    <th>Vat</th>
+    <th>Msf charge</th>
+    <th>Delivery charge</th>
+    <th>Grand total</th>
+    <th>Order status</th>
+    <th>Sales invoice num</th>
+    <th>Sales invoice date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @so_headers.each do |so_header| %>
+  <tr>
+    <td><%= so_header.outlet_code %></td>
+    <td><%= so_header.company_code %></td>
+    <td><%= so_header.outlet_name %></td>
+    <td><%= so_header.customer_name %></td>
+    <td><%= so_header.delivery_group %></td>
+    <td><%= so_header.so_number %></td>
+    <td><%= so_header.order_date %></td>
+    <td><%= so_header.delivery_date %></td>
+    <td><%= so_header.production_date %></td>
+    <td><%= so_header.total_order_amount %></td>
+    <td><%= so_header.vat %></td>
+    <td><%= so_header.msf_charge %></td>
+    <td><%= so_header.delivery_charge %></td>
+    <td><%= so_header.grand_total %></td>
+    <td><%= so_header.order_status %></td>
+    <td><%= so_header.sales_invoice_num %></td>
+    <td><%= so_header.sales_invoice_date %></td>
+    <td><%= link_to 'Show', so_header %></td>
+    <td><%= link_to 'Edit', edit_so_header_path(so_header) %></td>
+    <td><%= link_to 'Destroy', so_header, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New So header', new_so_header_path %>

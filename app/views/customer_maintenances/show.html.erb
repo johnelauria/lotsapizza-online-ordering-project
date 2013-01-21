@@ -1,0 +1,145 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer type:</b>
+  <%= @customer_maintenance.customer_type %>
+</p>
+
+<p>
+  <b>Customer name:</b>
+  <%= @customer_maintenance.customer_name %>
+</p>
+
+<p>
+  <b>Customer tax:</b>
+  <%= @customer_maintenance.customer_tax_id %>
+</p>
+
+<p>
+  <b>Vat registered:</b>
+  <%= @customer_maintenance.vat_registered %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @customer_maintenance.contact_name %>
+</p>
+
+<p>
+  <b>Primary phone:</b>
+  <%= @customer_maintenance.primary_phone %>
+</p>
+
+<p>
+  <b>Mobile num:</b>
+  <%= @customer_maintenance.mobile_num %>
+</p>
+
+<p>
+  <b>Fax num:</b>
+  <%= @customer_maintenance.fax_num %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%= @customer_maintenance.email_address %>
+</p>
+
+<p>
+  <b>Outlet code:</b>
+  <%= "%03d" % @customer_maintenance.id %>
+</p>
+
+<p>
+  <b>Outlet name: </b>
+  <%= @customer_maintenance.outlet_name %>
+</p>
+
+<p>
+  <b>Outlet Address: </b>
+  <%= @customer_maintenance.outlet_address %>
+</p>
+
+<p>
+  <b>Outlet City / Town: </b>
+  <%= @customer_maintenance.outlet_city %>
+</p>
+
+<p>
+  <b>Outlet / Billing flag: </b>
+  <%= @customer_maintenance.outlet_billing_flag %>
+</p>
+
+<p>
+  <b>Billing Address: </b>
+  <%= @customer_maintenance.billing_address %>
+</p>
+
+<p>
+  <b>Billing City / Town: </b>
+  <%= @customer_maintenance.billing_city_town %>
+</p>
+
+<p>
+  <b>Terms: </b>
+  <%= @customer_maintenance.terms %>
+</p>
+
+<p>
+  <b>MSF Charge: </b>
+  <%= @customer_maintenance.msf_charge %>
+</p>
+
+<p>
+  <b>Delivery Charge: </b>
+  <%= @customer_maintenance.delivery_charge %>
+</p>
+
+<p>
+  <b>Status: </b>
+  <%= @customer_maintenance.status %>
+</p>
+
+<p>
+  <b>Order Schedule: </b>
+  <%= @customer_maintenance.order_schedule %>
+</p>
+
+<p>
+  <b>Delivery Group Code: </b>
+  <%= @customer_maintenance.delivery_group_code %>
+</p>
+
+<p>
+  <b>Production Group Code: </b>
+  <%= @customer_maintenance.production_group_code %>
+</p>
+
+<p>
+  <b>Delivery Notes: </b>
+  <%= @customer_maintenance.delivery_notes %>
+</p>
+
+<p>
+  <b>Additional Notes: </b>
+  <%= @customer_maintenance.additional_notes %>
+</p>
+
+<p>
+  <b>Assess Finance / Late Charges: </b>
+  <%= @customer_maintenance.assess_finance_late_charges %>
+</p>
+
+<p>
+  <b>Finance / Late Charge: </b>
+  <%= @customer_maintenance.finance_late_charges %>
+</p>
+
+<p>
+  <b>Credit Limit: </b>
+  <%= @customer_maintenance.credit_limit %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_maintenance_path(@customer_maintenance) %> |
+<%= link_to 'Back', customer_maintenances_path %>

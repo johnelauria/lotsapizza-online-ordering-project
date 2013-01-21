@@ -1,0 +1,46 @@
+<h1>Listing Customer's Maintenance</h1>
+
+<table class="table" border="1">
+  <tr>
+    <th>Customer Number</th>
+    <th>Customer type</th>
+    <th>Customer name</th>
+    <th>Customer tax</th>
+    <th>Vat registered</th>
+    <th>Contact name</th>
+    <th>Primary phone</th>
+    <th>Mobile num</th>
+    <th>Fax num</th>
+    <th>Email address</th>
+    <th>Outlet code</th>
+    <th>Outlet name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customer_maintenances.each do |customer_maintenance| %>
+  <tr>
+    <td><%= customer_maintenance.id %></td>
+    <td><%= customer_maintenance.customer_type %></td>
+    <td><%= customer_maintenance.customer_name %></td>
+    <td><%= customer_maintenance.customer_tax_id %></td>
+    <td><%= customer_maintenance.vat_registered %></td>
+    <td><%= customer_maintenance.contact_name %></td>
+    <td><%= customer_maintenance.primary_phone %></td>
+    <td><%= customer_maintenance.mobile_num %></td>
+    <td><%= customer_maintenance.fax_num %></td>
+    <td><%= customer_maintenance.email_address %></td>
+    <td><%= "%03d" % customer_maintenance.outlet_code %></td>
+    <td><%= customer_maintenance.outlet_name %></td>
+    <td><%= link_to 'Show', customer_maintenance, class: "btn btn-mini" %></td>
+    <td><%= link_to 'Edit', edit_customer_maintenance_path(customer_maintenance), class: "btn btn-mini" %></td>
+    <td><%= link_to 'Destroy', customer_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-mini btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer maintenance', new_customer_maintenance_path, class: "btn" %>
+

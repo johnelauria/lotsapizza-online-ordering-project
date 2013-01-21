@@ -1,0 +1,51 @@
+<h1>Listing product_maintenances</h1>
+
+<table>
+  <tr>
+    <th>Product code</th>
+    <th>Product description</th>
+    <th>Po unit</th>
+    <th>Issue unit</th>
+    <th>Conversion factor</th>
+    <th>Subject to vat</th>
+    <th>Subject to finance late charge</th>
+    <th>Eligible for discount</th>
+    <th>Purchase price</th>
+    <th>Selling price</th>
+    <th>Re order point</th>
+    <th>Vendor</th>
+    <th>Stocking company</th>
+    <th>Raw materials</th>
+    <th>Sort code</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_maintenances.each do |product_maintenance| %>
+  <tr>
+    <td><%= product_maintenance.product_code %></td>
+    <td><%= product_maintenance.product_description %></td>
+    <td><%= product_maintenance.po_unit %></td>
+    <td><%= product_maintenance.issue_unit %></td>
+    <td><%= product_maintenance.conversion_factor %></td>
+    <td><%= product_maintenance.subject_to_vat %></td>
+    <td><%= product_maintenance.subject_to_finance_late_charge %></td>
+    <td><%= product_maintenance.eligible_for_discount %></td>
+    <td><%= product_maintenance.purchase_price %></td>
+    <td><%= product_maintenance.selling_price %></td>
+    <td><%= product_maintenance.re_order_point %></td>
+    <td><%= product_maintenance.vendor %></td>
+    <td><%= product_maintenance.stocking_company %></td>
+    <td><%= product_maintenance.raw_materials %></td>
+    <td><%= product_maintenance.sort_code %></td>
+    <td><%= link_to 'Show', product_maintenance %></td>
+    <td><%= link_to 'Edit', edit_product_maintenance_path(product_maintenance) %></td>
+    <td><%= link_to 'Destroy', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product maintenance', new_product_maintenance_path %>

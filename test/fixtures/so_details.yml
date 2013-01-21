@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  outlet_code: 1
+  outlet_name: MyString
+  customer_name: MyString
+  delivery_group: MyString
+  so_number: 1
+  sales_invoice_num: 1
+  product_code: MyString
+  issue_unit: 1
+  unit_price: 9.99
+  quantity: 1
+  amount: 9.99
+
+two:
+  outlet_code: 1
+  outlet_name: MyString
+  customer_name: MyString
+  delivery_group: MyString
+  so_number: 1
+  sales_invoice_num: 1
+  product_code: MyString
+  issue_unit: 1
+  unit_price: 9.99
+  quantity: 1
+  amount: 9.99

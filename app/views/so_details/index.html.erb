@@ -1,0 +1,43 @@
+<h1>Listing so_details</h1>
+
+<table>
+  <tr>
+    <th>Outlet code</th>
+    <th>Outlet name</th>
+    <th>Customer name</th>
+    <th>Delivery group</th>
+    <th>So number</th>
+    <th>Sales invoice num</th>
+    <th>Product code</th>
+    <th>Issue unit</th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @so_details.each do |so_detail| %>
+  <tr>
+    <td><%= so_detail.outlet_code %></td>
+    <td><%= so_detail.outlet_name %></td>
+    <td><%= so_detail.customer_name %></td>
+    <td><%= so_detail.delivery_group %></td>
+    <td><%= so_detail.so_number %></td>
+    <td><%= so_detail.sales_invoice_num %></td>
+    <td><%= so_detail.product_code %></td>
+    <td><%= so_detail.issue_unit %></td>
+    <td><%= so_detail.unit_price %></td>
+    <td><%= so_detail.quantity %></td>
+    <td><%= so_detail.amount %></td>
+    <td><%= link_to 'Show', so_detail %></td>
+    <td><%= link_to 'Edit', edit_so_detail_path(so_detail) %></td>
+    <td><%= link_to 'Destroy', so_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New So detail', new_so_detail_path %>

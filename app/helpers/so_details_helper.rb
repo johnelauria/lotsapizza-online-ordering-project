@@ -1,0 +1,2 @@
+module SoDetailsHelper
+end

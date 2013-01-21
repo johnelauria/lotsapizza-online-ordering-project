@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_code: 1
+  product_description: MyText
+  po_unit: MyString
+  issue_unit: MyString
+  conversion_factor: 1
+  subject_to_vat: false
+  subject_to_finance_late_charge: false
+  eligible_for_discount: false
+  purchase_price: 9.99
+  selling_price: 9.99
+  re_order_point: 1
+  vendor: MyString
+  stocking_company: MyString
+  raw_materials: false
+  sort_code: MyString
+
+two:
+  product_code: 1
+  product_description: MyText
+  po_unit: MyString
+  issue_unit: MyString
+  conversion_factor: 1
+  subject_to_vat: false
+  subject_to_finance_late_charge: false
+  eligible_for_discount: false
+  purchase_price: 9.99
+  selling_price: 9.99
+  re_order_point: 1
+  vendor: MyString
+  stocking_company: MyString
+  raw_materials: false
+  sort_code: MyString

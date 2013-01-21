@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product code:</b>
+  <%= @product_maintenance.product_code %>
+</p>
+
+<p>
+  <b>Product description:</b>
+  <%= @product_maintenance.product_description %>
+</p>
+
+<p>
+  <b>Po unit:</b>
+  <%= @product_maintenance.po_unit %>
+</p>
+
+<p>
+  <b>Issue unit:</b>
+  <%= @product_maintenance.issue_unit %>
+</p>
+
+<p>
+  <b>Conversion factor:</b>
+  <%= @product_maintenance.conversion_factor %>
+</p>
+
+<p>
+  <b>Subject to vat:</b>
+  <%= @product_maintenance.subject_to_vat %>
+</p>
+
+<p>
+  <b>Subject to finance late charge:</b>
+  <%= @product_maintenance.subject_to_finance_late_charge %>
+</p>
+
+<p>
+  <b>Eligible for discount:</b>
+  <%= @product_maintenance.eligible_for_discount %>
+</p>
+
+<p>
+  <b>Purchase price:</b>
+  <%= @product_maintenance.purchase_price %>
+</p>
+
+<p>
+  <b>Selling price:</b>
+  <%= @product_maintenance.selling_price %>
+</p>
+
+<p>
+  <b>Re order point:</b>
+  <%= @product_maintenance.re_order_point %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @product_maintenance.vendor %>
+</p>
+
+<p>
+  <b>Stocking company:</b>
+  <%= @product_maintenance.stocking_company %>
+</p>
+
+<p>
+  <b>Raw materials:</b>
+  <%= @product_maintenance.raw_materials %>
+</p>
+
+<p>
+  <b>Sort code:</b>
+  <%= @product_maintenance.sort_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_maintenance_path(@product_maintenance) %> |
+<%= link_to 'Back', product_maintenances_path %>

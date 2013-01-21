@@ -1,0 +1,61 @@
+<%= form_for(@so_detail) do |f| %>
+  <% if @so_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@so_detail.errors.count, "error") %> prohibited this so_detail from being saved:</h2>
+
+      <ul>
+      <% @so_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :outlet_code %><br />
+    <%= f.number_field :outlet_code %>
+  </div>
+  <div class="field">
+    <%= f.label :outlet_name %><br />
+    <%= f.text_field :outlet_name %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_group %><br />
+    <%= f.text_field :delivery_group %>
+  </div>
+  <div class="field">
+    <%= f.label :so_number %><br />
+    <%= f.number_field :so_number %>
+  </div>
+  <div class="field">
+    <%= f.label :sales_invoice_num %><br />
+    <%= f.number_field :sales_invoice_num %>
+  </div>
+  <div class="field">
+    <%= f.label :product_code %><br />
+    <%= f.text_field :product_code %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_unit %><br />
+    <%= f.number_field :issue_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_price %><br />
+    <%= f.text_field :unit_price %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
