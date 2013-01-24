@@ -2,7 +2,6 @@
   <% if @customer_maintenance.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer_maintenance.errors.count, "error") %> prohibited this customer_maintenance from being saved:</h2>
-
       <ul>
       <% @customer_maintenance.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -67,7 +66,7 @@
   </div>
     <div class="field">
       <%= f.label :outlet_address %><br />
-      <%= f.text_area :outlet_address %>
+      <%= f.text_area :outlet_address, rows: 5 %>
     </div>
     <div class="field">
       <%= f.label "Outlet city / Town" %><br />
@@ -79,7 +78,7 @@
     </div>
     <div class="field">
       <%= f.label "Billing Address" %><br />
-      <%= f.text_area :billing_address %>
+      <%= f.text_area :billing_address, rows: 5 %>
     </div>
     <div class="field">
       <%= f.label "Billing city/town" %><br />

@@ -3,6 +3,7 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances.json
   def index
     @product_maintenances = ProductMaintenance.all
+    @so_detail = SoDetail.new(params[:so_detail])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,23 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances/1.json
   def show
     @product_maintenance = ProductMaintenance.find(params[:id])
+    @so_detail = SoDetail.new(params[:so_detail])
+    if current_user.so_headers.last.nil?
+      SoHeader.create(
+          customer_maintenance_id: current_user.id,
+          outlet_code: current_user.outlet_code,
+          company_code: 0,
+          outlet_name: current_user.outlet_name,
+          customer_name: current_user.customer_name,
+          delivery_group: current_user.delivery_group_code,
+          order_date: Date.today,
+          delivery_date: Date.tomorrow,
+          production_date: Date.today,
+          total_order_amount: 0,
+          vat: 0,
+          msf_charge: 0,
+          delivery_charge: 0)
+      end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +59,7 @@ class ProductMaintenancesController < ApplicationController
   # POST /product_maintenances.json
   def create
     @product_maintenance = ProductMaintenance.new(params[:product_maintenance])
+    @so_detail = SoDetail.new(params[:so_detail])
 
     respond_to do |format|
       if @product_maintenance.save

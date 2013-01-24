@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<p>You are ordering for a <%= @product_maintenance.product_description %></p>
+
+<%= render "so_details/form" %>
+
+<h3>Details of this product: </h3>
+
 <p>
   <b>Product code:</b>
   <%= @product_maintenance.product_code %>
@@ -42,12 +48,12 @@
 
 <p>
   <b>Purchase price:</b>
-  <%= @product_maintenance.purchase_price %>
+  <%= sprintf("P%0.02f", @product_maintenance.purchase_price) %>
 </p>
 
 <p>
   <b>Selling price:</b>
-  <%= @product_maintenance.selling_price %>
+  <%= sprintf("P%0.02f", @product_maintenance.selling_price) %>
 </p>
 
 <p>

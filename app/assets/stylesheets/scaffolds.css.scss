@@ -20,16 +20,6 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
 
 div {
   &.field, &.actions {
@@ -43,13 +33,14 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
   display: table;
+  @extend .control-group;
+  @extend .error
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 1px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -61,11 +52,11 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    color: #ff0000;
   }
   ul li {
     font-size: 12px;
     list-style: square;
+    color: #ff0000;
   }
 }

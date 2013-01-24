@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :product_code %><br />
-    <%= f.number_field :product_code %>
+    <%= f.text_field :product_code, placeholder: "3-Digit Alpha Numeric" %>
   </div>
   <div class="field">
     <%= f.label :product_description %><br />
-    <%= f.text_area :product_description %>
+    <%= f.text_area :product_description, rows: 5 %>
   </div>
   <div class="field">
     <%= f.label :po_unit %><br />
-    <%= f.text_field :po_unit %>
+    <%= f.select :po_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
   </div>
   <div class="field">
     <%= f.label :issue_unit %><br />
-    <%= f.text_field :issue_unit %>
+    <%= f.select :issue_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
   </div>
   <div class="field">
     <%= f.label :conversion_factor %><br />

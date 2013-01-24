@@ -11,51 +11,30 @@
     </div>
   <% end %>
 
+
+    <%= f.hidden_field :outlet_code, value: current_user.outlet_code %>
+
+    <%= f.hidden_field :outlet_name, value: current_user.outlet_name %>
+
+    <%= f.hidden_field :customer_name, value: current_user.customer_name %>
+
+    <%= f.hidden_field :delivery_group, value: current_user.delivery_group_code %>
+
+    <%= f.hidden_field :product_code, value: @product_maintenance.product_code %>
+
+    <%= f.hidden_field :issue_unit, value: @product_maintenance.conversion_factor %>
+
+    <%= f.hidden_field :unit_price, value: @product_maintenance.purchase_price %>
+
+    <%= f.hidden_field :so_number, value: current_user.so_headers.last.id %>
+
+    <%= f.hidden_field :so_header_id, value: current_user.so_headers.last.id %>
+
   <div class="field">
-    <%= f.label :outlet_code %><br />
-    <%= f.number_field :outlet_code %>
-  </div>
-  <div class="field">
-    <%= f.label :outlet_name %><br />
-    <%= f.text_field :outlet_name %>
-  </div>
-  <div class="field">
-    <%= f.label :customer_name %><br />
-    <%= f.text_field :customer_name %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_group %><br />
-    <%= f.text_field :delivery_group %>
-  </div>
-  <div class="field">
-    <%= f.label :so_number %><br />
-    <%= f.number_field :so_number %>
-  </div>
-  <div class="field">
-    <%= f.label :sales_invoice_num %><br />
-    <%= f.number_field :sales_invoice_num %>
-  </div>
-  <div class="field">
-    <%= f.label :product_code %><br />
-    <%= f.text_field :product_code %>
-  </div>
-  <div class="field">
-    <%= f.label :issue_unit %><br />
-    <%= f.number_field :issue_unit %>
-  </div>
-  <div class="field">
-    <%= f.label :unit_price %><br />
-    <%= f.text_field :unit_price %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br />
+    <%= f.label "How many #{@product_maintenance.product_description} would you like to order" %><br />
     <%= f.number_field :quantity %>
   </div>
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Order" %>
   </div>
 <% end %>

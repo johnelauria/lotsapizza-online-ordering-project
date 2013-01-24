@@ -1,4 +1,9 @@
 OnlineOrdering::Application.routes.draw do
+
+
+
+  get "home/homepage"
+
   resources :system_tables
 
 
@@ -13,6 +18,11 @@ OnlineOrdering::Application.routes.draw do
 
   resources :customer_maintenances
 
+  resources :sessions
+
+  match "/sign_out", to: "sessions#destroy"
+
+  match "/sign_in", to: "sessions#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +73,7 @@ OnlineOrdering::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#homepage'
 
   # See how all your routes lay out with "rake routes"
 

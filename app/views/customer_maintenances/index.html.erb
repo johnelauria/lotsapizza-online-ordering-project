@@ -1,6 +1,8 @@
 <h1>Listing Customer's Maintenance</h1>
 
-<table class="table" border="1">
+<br />
+
+<table class="table">
   <tr>
     <th>Customer Number</th>
     <th>Customer type</th>
@@ -35,7 +37,7 @@
     <td><%= customer_maintenance.outlet_name %></td>
     <td><%= link_to 'Show', customer_maintenance, class: "btn btn-mini" %></td>
     <td><%= link_to 'Edit', edit_customer_maintenance_path(customer_maintenance), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Destroy', customer_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-mini btn-danger" %></td>
+    <td><%= link_to 'Destroy', customer_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

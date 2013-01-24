@@ -1,5 +1,45 @@
 <p id="notice"><%= notice %></p>
 
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#orders" data-toggle="tab">Orders</a></li>
+  <li><a href="#profile_info" data-toggle="tab">Profile Information</a></li>
+</ul>
+
+<div class="tab-content">
+<div id="orders" class="tab-pane active">
+<table class="table">
+  <tr>
+    <th>Order Date</th>
+    <th>Grand Total</th>
+    <th>Order Status</th>
+    <th>Sales Invoice #</th>
+    <th>Sales Invoice Date</th>
+  </tr>
+<% @customer_maintenance.so_headers.each do |header| %>
+  <tr>
+    <td><%= link_to header.order_date, header %></td>
+    <td><%= header.grand_total %></td>
+    <% if header.order_status.nil? %>
+        <td>Pending...</td>
+    <% else %>
+        <td><%= header.order_status %></td>
+    <% end %>
+    <% if header.sales_invoice_num.nil? %>
+        <td>Pending...</td>
+    <% else %>
+    <td><%= header.sales_invoice_num %></td>
+    <% end %>
+    <% if header.sales_invoice_date.nil? %>
+        <td>Pending...</td>
+    <% else %>
+    <td><%= header.sales_invoice_date %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<div class="tab-pane fade" id="profile_info">
 <p>
   <b>Customer type:</b>
   <%= @customer_maintenance.customer_type %>
@@ -143,3 +183,5 @@
 
 <%= link_to 'Edit', edit_customer_maintenance_path(@customer_maintenance) %> |
 <%= link_to 'Back', customer_maintenances_path %>
+</div>
+</div>
