@@ -15,10 +15,10 @@
     <th>Sales Invoice #</th>
     <th>Sales Invoice Date</th>
   </tr>
-<% @customer_maintenance.so_headers.each do |header| %>
+<% @customer_maintenance.so_headers.reverse.each do |header| %>
   <tr>
     <td><%= link_to header.order_date, header %></td>
-    <td><%= header.grand_total %></td>
+    <td><%= sprintf("P%0.02f", header.grand_total) %></td>
     <% if header.order_status.nil? %>
         <td>Pending...</td>
     <% else %>
@@ -127,12 +127,12 @@
 
 <p>
   <b>MSF Charge: </b>
-  <%= @customer_maintenance.msf_charge %>
+  <%= @customer_maintenance.msf_charge %> computed by <%= @customer_maintenance.msf_charge_computation %>
 </p>
 
 <p>
   <b>Delivery Charge: </b>
-  <%= @customer_maintenance.delivery_charge %>
+  <%= @customer_maintenance.delivery_charge %> computed by <%= @customer_maintenance.delivery_charge_computation %>
 </p>
 
 <p>

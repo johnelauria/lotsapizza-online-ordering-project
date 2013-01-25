@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <% unless admin? %>
     <%= f.label :outlet_code %><br />
     <%= f.number_field :outlet_code %>
   </div>
@@ -46,6 +47,7 @@
     <%= f.label :grand_total %><br />
     <%= f.text_field :grand_total %>
   </div>
+        <% end %>
   <div class="field">
     <%= f.label :order_status %><br />
     <%= f.text_field :order_status %>

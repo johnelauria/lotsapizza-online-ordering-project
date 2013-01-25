@@ -4,11 +4,11 @@ class ProductMaintenance < ActiveRecord::Base
   validates :product_code, presence: true, length: { maximum:3 }
   validates :product_description, :po_unit, :issue_unit, presence: true
 
-  def vat_computed_value
+  def vat_deduction_value
     if self.subject_to_vat?
-      vat_computed_value = self.purchase_price - (self.purchase_price * 0.12)
+      vat_deduction_value = self.purchase_price * 0.12
     else
-      vat_computed_value = self.purchase_price
+      vat_deduction_value = 0
     end
   end
 end

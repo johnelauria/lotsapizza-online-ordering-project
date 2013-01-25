@@ -90,11 +90,11 @@
     </div>
     <div class="field">
       <%= f.label "MSF Charge" %><br />
-      <%= f.text_field :msf_charge %>
+      <%= f.text_field :msf_charge %> | <%= f.select :msf_charge_computation, "<option>Flat charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select msf computation" %>
     </div>
     <div class="field">
       <%= f.label :Delivery_charge %><br />
-      <%= f.text_field :delivery_charge %>
+      <%= f.text_field :delivery_charge %> | <%= f.select :delivery_charge_computation, "<option>Flat Charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select delivery charge computation" %>
     </div>
     <div class="field">
       <%= f.label :status %><br />

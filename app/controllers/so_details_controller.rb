@@ -3,6 +3,8 @@ class SoDetailsController < ApplicationController
   # GET /so_details.json
   def index
     @so_details = SoDetail.all
+    @q = SoDetail.search(params[:q])
+    @so_detail = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb

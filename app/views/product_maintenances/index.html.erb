@@ -1,4 +1,4 @@
-<h1>Listing product_maintenances</h1>
+<h1>Products Available</h1>
 
 <table class="table">
   <tr>
@@ -8,15 +8,10 @@
     <th>Issue unit</th>
     <th>Conversion factor</th>
     <th>Subject to vat</th>
-    <th>Subject to finance late charge</th>
+    <th>Subject to finance</th>
     <th>Eligible for discount</th>
     <th>Purchase price</th>
     <th>Selling price</th>
-    <th>Re order point</th>
-    <th>Vendor</th>
-    <th>Stocking company</th>
-    <th>Raw materials</th>
-    <th>Sort code</th>
     <th></th>
     <th></th>
     <th></th>
@@ -34,13 +29,6 @@
     <td><%= product_maintenance.eligible_for_discount %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
-    <td><%= product_maintenance.re_order_point %></td>
-    <td><%= product_maintenance.vendor %></td>
-    <td><%= product_maintenance.stocking_company %></td>
-    <td><%= product_maintenance.raw_materials %></td>
-    <td><%= product_maintenance.sort_code %></td>
-    <td><%= product_maintenance.vat_computed_value %></td>
-    <td><a href="#orderModal" class="btn btn-mini btn-primary" data-toggle="modal">Place order</a></td>
     <td><%= link_to 'Order this product', product_maintenance, class: "btn btn-mini" %></td>
     <td><%= link_to 'Edit', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
     <td><%= link_to 'Destroy', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
@@ -51,16 +39,3 @@
 <br />
 
 <%= link_to 'New Product maintenance', new_product_maintenance_path %>
-
-<div id="orderModal" class="modal hide fade">
-  <div class="modal-header">
-    <a class="close" data-dismiss="modal">X</a>
-    <h2>Please enter amount of quantity</h2>
-  </div>
-  <div class="modal-body">
-
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">Close</button>
-  </div>
-</div>

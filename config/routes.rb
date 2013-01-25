@@ -2,6 +2,9 @@ OnlineOrdering::Application.routes.draw do
 
 
 
+  resources :admins
+
+
   get "home/homepage"
 
   resources :system_tables

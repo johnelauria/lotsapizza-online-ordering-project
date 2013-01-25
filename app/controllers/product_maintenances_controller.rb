@@ -26,12 +26,23 @@ class ProductMaintenancesController < ApplicationController
           delivery_group: current_user.delivery_group_code,
           order_date: Date.today,
           delivery_date: Date.tomorrow,
-          production_date: Date.today,
-          total_order_amount: 0,
-          vat: 0,
-          msf_charge: 0,
-          delivery_charge: 0)
-      end
+          production_date: Date.today
+      )
+    end
+
+    if current_user.so_headers.last.order_date != Date.today
+      SoHeader.create(
+          customer_maintenance_id: current_user.id,
+          outlet_code: current_user.outlet_code,
+          company_code: 0,
+          outlet_name: current_user.outlet_name,
+          customer_name: current_user.customer_name,
+          delivery_group: current_user.delivery_group_code,
+          order_date: Date.today,
+          delivery_date: Date.tomorrow,
+          production_date: Date.today
+      )
+    end
 
     respond_to do |format|
       format.html # show.html.erb

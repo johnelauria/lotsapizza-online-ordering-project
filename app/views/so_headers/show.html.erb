@@ -51,47 +51,60 @@
 
 <p>
   <b>Total order amount:</b>
-  <%= @so_header.total_order_amount %>
+  <%= sprintf("P%0.02f", @so_header.total_order_amount) %>
 </p>
 
 <p>
   <b>Vat:</b>
-  <%= @so_header.vat %>
+  <%= sprintf("P%0.02f", @so_header.vat) %>
 </p>
 
 <p>
   <b>Msf charge:</b>
-  <%= @so_header.msf_charge %>
+  <%= sprintf("P%0.02f", @so_header.msf_charge) %>
 </p>
 
 <p>
   <b>Delivery charge:</b>
-  <%= @so_header.delivery_charge %>
+  <%= sprintf("P%0.02f", @so_header.delivery_charge) %>
 </p>
 
 <p>
   <b>Grand total:</b>
-  <%= @so_header.grand_total %>
+  <%= sprintf("P%0.02f", @so_header.grand_total) unless @so_header.grand_total.nil? %>
 </p>
 
 <p>
   <b>Order status:</b>
-  <%= @so_header.order_status %>
+  <% if @so_header.order_status.nil? %>
+      Pending...
+  <% else %>
+    <%= @so_header.order_status %>
+  <% end %>
 </p>
 
 <p>
   <b>Sales invoice num:</b>
-  <%= @so_header.sales_invoice_num %>
+  <% if @so_header.sales_invoice_num.nil? %>
+      Pending...
+  <% else %>
+      <%= @so_header.sales_invoice_num %>
+  <% end %>
 </p>
 
 <p>
   <b>Sales invoice date:</b>
-  <%= @so_header.sales_invoice_date %>
+  <% if @so_header.sales_invoice_date.nil? %>
+      Pending...
+  <% else %>
+      <%= @so_header.sales_invoice_date %>
+  <% end %>
 </p>
     </div>
   <div class="span9">
     <table class="table">
       <tr>
+        <th>Product name</th>
         <th>Issue unit</th>
         <th>Unit_price</th>
         <th>Quantity</th>
@@ -99,10 +112,14 @@
       </tr>
       <% @so_header.so_details.each do |detail| %>
         <tr>
+          <td><%= ProductMaintenance.find_by_product_code(detail.product_code).product_description %></td>
           <td><%= detail.issue_unit %></td>
-          <td><%= detail.unit_price %></td>
+          <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
           <td><%= detail.quantity %></td>
           <td><%= sprintf("P%0.02f", detail.amount) %></td>
+          <% unless admin? %>
+          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status.nil? %></td>
+          <% end %>
         </tr>
       <% end %>
 
@@ -113,3 +130,4 @@
 
 <%= link_to 'Edit', edit_so_header_path(@so_header) %> |
 <%= link_to 'Back', so_headers_path %>
+ <br>

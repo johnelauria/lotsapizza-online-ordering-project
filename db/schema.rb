@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123121502) do
+ActiveRecord::Schema.define(:version => 20130125052409) do
+
+  create_table "admins", :force => true do |t|
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
+    t.string "remember_token"
+  end
 
   create_table "customer_maintenances", :force => true do |t|
     t.string   "customer_type"
@@ -25,14 +32,12 @@ ActiveRecord::Schema.define(:version => 20130123121502) do
     t.string   "email_address"
     t.integer  "outlet_code"
     t.string   "outlet_name"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.string   "outlet_address",              :limit => nil
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "outlet_address"
     t.string   "outlet_city"
     t.string   "outlet_billing_flag"
     t.string   "terms"
-    t.integer  "msf_charge"
-    t.integer  "delivery_charge"
     t.string   "status"
     t.string   "order_schedule"
     t.string   "delivery_group_code"
@@ -44,8 +49,12 @@ ActiveRecord::Schema.define(:version => 20130123121502) do
     t.text     "billing_city_town"
     t.string   "production_group_code"
     t.text     "additional_notes"
-    t.string   "password_digest",             :limit => nil
-    t.string   "remember_token",              :limit => nil
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.string   "msf_charge_computation"
+    t.string   "delivery_charge_computation"
+    t.decimal  "msf_charge",                  :default => 0.0, :null => false
+    t.decimal  "delivery_charge",             :default => 0.0, :null => false
   end
 
   create_table "product_maintenances", :force => true do |t|
@@ -67,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20130123121502) do
   end
 
   create_table "so_details", :force => true do |t|
-    t.integer  "outlet_code"
     t.string   "outlet_name"
     t.string   "customer_name"
     t.string   "delivery_group"
@@ -81,10 +89,10 @@ ActiveRecord::Schema.define(:version => 20130123121502) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.integer  "so_header_id"
+    t.string   "outlet_code"
   end
 
   create_table "so_headers", :force => true do |t|
-    t.integer  "outlet_code"
     t.string   "company_code"
     t.string   "outlet_name"
     t.string   "customer_name"
@@ -104,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20130123121502) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "customer_maintenance_id"
+    t.string   "outlet_code"
   end
 
   create_table "system_tables", :force => true do |t|

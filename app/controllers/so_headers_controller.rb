@@ -3,6 +3,8 @@ class SoHeadersController < ApplicationController
   # GET /so_headers.json
   def index
     @so_headers = SoHeader.all
+    @q = SoHeader.search(params[:q])
+    @so_header = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb

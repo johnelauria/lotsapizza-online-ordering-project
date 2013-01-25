@@ -7,4 +7,9 @@ class SoDetail < ActiveRecord::Base
   def calculate_total_amount
     self.amount = self.quantity * self.unit_price
   end
+
+  def vat_deduction
+    ProductMaintenance.find_by_product_code(self.product_code).vat_deduction_value
+  end
+
 end

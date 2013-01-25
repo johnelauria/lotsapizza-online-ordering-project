@@ -1,5 +1,11 @@
 <h1>Listing so_details</h1>
 
+<%= search_form_for @q do |f| %>
+    <%= f.label :outlet_code_cont %>
+    <%= f.text_field :outlet_code_cont%>
+    <%= f.submit %>
+<% end %>
+
 <table>
   <tr>
     <th>Outlet code</th>
@@ -18,7 +24,7 @@
     <th></th>
   </tr>
 
-<% @so_details.each do |so_detail| %>
+<% @so_detail.each do |so_detail| %>
   <tr>
     <td><%= so_detail.outlet_code %></td>
     <td><%= so_detail.outlet_name %></td>
@@ -32,12 +38,6 @@
     <td><%= so_detail.quantity %></td>
     <td><%= so_detail.amount %></td>
     <td><%= link_to 'Show', so_detail %></td>
-    <td><%= link_to 'Edit', edit_so_detail_path(so_detail) %></td>
-    <td><%= link_to 'Destroy', so_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New So detail', new_so_detail_path %>

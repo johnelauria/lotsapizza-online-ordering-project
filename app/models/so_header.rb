@@ -6,4 +6,32 @@ class SoHeader < ActiveRecord::Base
   def so_number
     self.id
   end
+
+  def total_order_amount
+    self.so_details.map(&:amount).sum
+  end
+
+  def vat
+    self.so_details.map(&:vat_deduction).sum
+  end
+
+  def grand_total
+    self.total_order_amount + self.vat + self.msf_charge + self.delivery_charge
+  end
+
+  def msf_charge
+    if self.customer_maintenance.msf_charge_computation == "Flat charge"
+      self.customer_maintenance.msf_charge
+    else
+      self.so_details.map(&:amount).sum * (self.customer_maintenance.msf_charge / 100)
+    end
+  end
+
+  def delivery_charge
+    if self.customer_maintenance.delivery_charge_computation == "Flat Charge"
+        self.customer_maintenance.delivery_charge
+      else
+        self.so_details.map(&:amount).sum * (self.customer_maintenance.delivery_charge / 100)
+    end
+  end
 end
