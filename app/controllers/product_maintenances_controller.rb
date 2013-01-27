@@ -79,7 +79,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.save
-        format.html { redirect_to @product_maintenance, notice: 'Product maintenance was successfully created.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully created.' }
         format.json { render json: @product_maintenance, status: :created, location: @product_maintenance }
       else
         format.html { render action: "new" }
