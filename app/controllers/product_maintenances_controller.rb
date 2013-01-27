@@ -95,7 +95,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.update_attributes(params[:product_maintenance])
-        format.html { redirect_to @product_maintenance, notice: 'Product maintenance was successfully updated.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
