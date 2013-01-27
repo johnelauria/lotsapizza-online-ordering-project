@@ -1,10 +1,12 @@
 class SoDetailsController < ApplicationController
   # GET /so_details
   # GET /so_details.json
+
+  before_filter :restrict_customer_access, only: [:index]
   def index
-    @so_details = SoDetail.all
+    @so_details = SoDetail.paginate(page: params[:page])
     @q = SoDetail.search(params[:q])
-    @so_detail = @q.result(distinct: true).reverse
+    @so_detail = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +48,7 @@ class SoDetailsController < ApplicationController
 
     respond_to do |format|
       if @so_detail.save
-        format.html { redirect_to @so_detail, notice: 'So detail was successfully created.' }
+        format.html { redirect_to product_maintenances_path, notice: 'So detail was successfully created.' }
         format.json { render json: @so_detail, status: :created, location: @so_detail }
       else
         format.html { render action: "new" }

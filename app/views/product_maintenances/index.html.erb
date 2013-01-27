@@ -5,16 +5,26 @@
     <%= f.submit "Search", class: "btn" %>
 <% end %>
 
+<%= search_form_for @q do |f| %>
+  <%= f.select :category_cont, "<option>Beverages</option><option>Boxes</option><option>Bread</option><option>Forms</option><option>Groceries</option><option>In can</option><option>Pizza Crust</option><option>Plastics</option><option>Toppings</option>".html_safe, prompt: "Search by Category" %>
+  <%= f.submit "Search", class: "btn" %>
+<% end %>
+
+<a href="#totalOrders" class="btn" data-toggle="modal">Total orders</a>
+
 <table class="table">
   <tr>
     <th>Product code</th>
     <th>Product description</th>
+    <th>Category</th>
     <th>Po unit</th>
+    <% if admin? %>
+    <th>Subject to vat</th>
+    <th>Subject to finance / late charge</th>
+    <th>Eligible for discount</th>
+    <% end %>
     <th>Issue unit</th>
     <th>Conversion factor</th>
-    <th>Subject to vat</th>
-    <th>Subject to finance</th>
-    <th>Eligible for discount</th>
     <th>Purchase price</th>
     <th>Selling price</th>
     <th></th>
@@ -26,12 +36,16 @@
   <tr>
     <td><%= product_maintenance.product_code %></td>
     <td><%= product_maintenance.product_description %></td>
+    <td><%= product_maintenance.category %></td>
     <td><%= product_maintenance.po_unit %></td>
+    <% if admin? %>
+    <td><%= product_maintenance.subject_to_vat %></td>
+    <td><%= product_maintenance.subject_to_finance_late_charge %></td>
+    <td><%= product_maintenance.eligible_for_discount %></td>
+    <% end %>
     <td><%= product_maintenance.issue_unit %></td>
     <td><%= product_maintenance.conversion_factor %></td>
-    <td><%= product_maintenance.subject_to_vat ? 'yes' : 'no' %></td>
-    <td><%= product_maintenance.subject_to_finance_late_charge ? 'yes' : 'no' %></td>
-    <td><%= product_maintenance.eligible_for_discount %></td>
+    
     <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
     <% if signed_in? %>
@@ -39,7 +53,7 @@
     <% end %>
     <% if admin? %>
     <td><%= link_to 'Edit', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Destroy', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <td><%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
   </tr>
   <% end %>
@@ -49,4 +63,41 @@
 
 <% if admin? %>
 <%= link_to 'Create New Product', new_product_maintenance_path, class: "btn" %>
+<% end %>
+<% unless admin? %>
+<% unless current_user.so_headers.find(current_user.so_headers.last.id).so_details.nil? %>
+<% if signed_in? %>
+<div class="modal hide fade" id="totalOrders">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">X</a>
+    <h2>Your recent orders</h2>
+  </div>
+  <div class="modal-body"> 
+<table class="table">
+      <tr>
+        <th>Product name</th>
+        <th>Unit_price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% current_user.so_headers.find(current_user.so_headers.last.id).so_details.each do |detail| %>
+        <tr>
+          <td><%= ProductMaintenance.find_by_product_code(detail.product_code).product_description %></td>
+          <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
+          <td><%= detail.quantity %></td>
+          <td><%= sprintf("P%0.02f", detail.amount) %></td>
+          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status.nil? %></td>
+        </tr>
+      <% end %>
+
+</table>
+</div>
+<div class="modal-footer">
+  <button type="close" class="btn" data-dismiss="modal">Close</button>
+</div>
+</div>
+<% end %>
+<% end %>
 <% end %>

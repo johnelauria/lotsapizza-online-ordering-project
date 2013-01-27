@@ -2,6 +2,8 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances
   # GET /product_maintenances.json
 
+  before_filter :restrict_customer_access, only: [:create, :new, :edit, :update, :destroy]
+
   def index
     @product_maintenances = ProductMaintenance.all.reverse
     @so_detail = SoDetail.new(params[:so_detail])

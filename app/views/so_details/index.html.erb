@@ -6,7 +6,9 @@
       <%= f.submit class: "btn" %>
   <% end %>
 </div>
-
+<br>
+<%= will_paginate %>
+<br />
 <table class="table">
   <tr>
     <th>Outlet code</th>
@@ -25,8 +27,9 @@
     <th></th>
   </tr>
 
-<% @so_detail.each do |so_detail| %>
+<% @so_details.each do |so_detail| %>
   <tr>
+    <td><%= so_detail.created_at %></td>
     <td><%= so_detail.outlet_code %></td>
     <td><%= so_detail.outlet_name %></td>
     <td><%= so_detail.customer_name %></td>
@@ -35,10 +38,12 @@
     <td><%= so_detail.sales_invoice_num %></td>
     <td><%= so_detail.product_code %></td>
     <td><%= so_detail.issue_unit %></td>
-    <td><%= so_detail.unit_price %></td>
+    <td><%= sprintf("P%0.02f", so_detail.unit_price) %></td>
     <td><%= so_detail.quantity %></td>
     <td><%= so_detail.amount %></td>
-    <td><%= link_to 'Show', so_detail %></td>
+    <td><%= link_to 'Show', so_detail, class: "btn btn-mini" %></td>
   </tr>
 <% end %>
 </table>
+<br />
+<%= will_paginate %>

@@ -7,6 +7,8 @@ OnlineOrdering::Application.routes.draw do
 
   get "home/homepage"
 
+  get "home/printable"
+
   resources :system_tables
 
 
@@ -17,7 +19,6 @@ OnlineOrdering::Application.routes.draw do
 
 
   resources :so_headers
-
 
   resources :customer_maintenances
 

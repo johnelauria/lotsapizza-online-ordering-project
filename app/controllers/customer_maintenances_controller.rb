@@ -2,8 +2,13 @@ class CustomerMaintenancesController < ApplicationController
   # GET /customer_maintenances
   # GET /customer_maintenances.json
 
+  before_filter :restrict_customer_access, only: [:index, :create, :new]
+  before_filter :correct_user?, only: [:edit, :update]
+
   def index
     @customer_maintenances = CustomerMaintenance.paginate(page: params[:page], order: "created_at DESC")
+    @q = CustomerMaintenance.search(params[:q])
+    @customer_maintenance = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb
