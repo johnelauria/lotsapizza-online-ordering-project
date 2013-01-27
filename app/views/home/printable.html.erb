@@ -10,5 +10,34 @@
 </div>
 </div>
 </div>
-<%= render 'so_headers/orders' %>
+    <table class="table">
+      <tr>
+        <th>Product name</th>
+        <th>Time ordered</th>
+        <th>Issue unit</th>
+        <th>Unit_price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+      <% @so_header.so_details.each do |detail| %>
+        <tr>
+          <td><%= ProductMaintenance.find_by_product_code(detail.product_code).product_description %></td>
+          <td><%= detail.created_at.strftime("%H:%M") %></td>
+          <td><%= detail.issue_unit %></td>
+          <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
+          <td><%= detail.quantity %></td>
+          <td><%= sprintf("P%0.02f", detail.amount) %></td>
+        </tr>
+      <% end %>
+        <tr>
+          <td><strong>Total: </strong></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong><%= sprintf("P%0.02f", @so_header.total_order_amount) %></strong></td>
+        </tr>
+
+    </table>
 <br />
