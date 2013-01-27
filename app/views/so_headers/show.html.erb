@@ -1,5 +1,5 @@
 <h1>Sales Order Details: </h1>
-
+<%= link_to "Print", home_printable_path, class: "btn" if signed_in? %>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#salesOrder" data-toggle="tab">Sales Order Details</a></li>
   <li><a href="#customerDetails" data-toggle="tab">Customer Details</a></li>
