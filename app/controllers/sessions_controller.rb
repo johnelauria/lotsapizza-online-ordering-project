@@ -12,12 +12,20 @@ class SessionsController < ApplicationController
       redirect_to product_maintenances_path
     else
       if admin && admin.authenticate(params[:session][:password])
-        flash[:info] = "Admin"
         admin_access admin
-        redirect_to so_headers_path
+        redirect_to admin_user
+        if Time.now.strftime("%H").to_i <= 12
+          flash[:success] = "Good morning #{admin_user.name}!"
+        else
+          if Time.now.strftime("H").to_i >= 12 && Time.now.strftime("%H").to_i <= 18
+            flash[:success] = "Good afternoon #{admin_user.name}!"
+          else
+            flash[:success] = "Good evening #{admin_user.name}!"
+          end
+        end
       else
       flash[:error] = "Incorrect login"
-      redirect_to new_session_path
+      redirect_to root_path
       end
     end
     end

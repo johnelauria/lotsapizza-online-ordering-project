@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
+  <b>Account of:</b>
   <%= @admin.name %>
 </p>
 
@@ -10,6 +8,5 @@
   <%= @admin.username %>
 </p>
 
-
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+<p>We currently have <%= link_to pluralize(SoHeader.find_all_by_order_status(nil).count, "pending order"), so_headers_path %> from the franchisees.
+  Please process their orders as soon as possible. </p>

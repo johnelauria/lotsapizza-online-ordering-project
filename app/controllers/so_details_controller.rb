@@ -4,7 +4,7 @@ class SoDetailsController < ApplicationController
   def index
     @so_details = SoDetail.all
     @q = SoDetail.search(params[:q])
-    @so_detail = @q.result(distinct: true)
+    @so_detail = @q.result(distinct: true).reverse
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,7 +78,7 @@ class SoDetailsController < ApplicationController
     @so_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to so_details_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end

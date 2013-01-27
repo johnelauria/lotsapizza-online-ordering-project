@@ -7,21 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="#">Lots'a pizza</a>
     <ul class="nav">
+      <li><%= image_tag("logo-lotsapizza.jpg", size: "87x87") %></li>
       <li><%= link_to "Home", root_path %></li>
-      <% if signed_in? %>
+      <% if signed_in? || admin? %>
         <li><%= link_to "Products", product_maintenances_path %></li>
+        <% if admin? %>
+            <li><%= link_to "Customers", customer_maintenances_path %></li>
+            <li><%= link_to "Sales Orders", so_headers_path %></li>
+        <% end %>
       <% end %>
     </ul>
+    <% if admin? %>
+        <ul class="nav pull-right">
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-lock"></i>Admin access<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Admin Accounts", admins_path %></li>
+              <li><%= link_to "Update my account", edit_admin_path(admin_user) %></li>
+              <li><%= link_to "Sign out", sign_out_path %></li>
+            </ul>
+          </li>
+        </ul>
+    <% else %>
     <% unless signed_in? %>
     <div class="navbar-form pull-right">
       <%= form_for(:session, url: sessions_path) do |f| %>
             <%= f.text_field :outlet_code, placeholder: "Outlet Code", class: "span2" %>
             <%= f.password_field :password, placeholder: "Password" %>
             <%= f.submit "Sign in", class: "btn btn-mini" %>
+          <a href="#adminModal" class="btn btn-mini btn-inverse" data-toggle="modal"><i class="icon-lock icon-white"></i></a>
         <% end %>
     </div>
         <% else %>
@@ -29,14 +46,21 @@
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account of <%= current_user.customer_name %><b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "View my orders", current_user %></li>
-              <li><%= link_to "Edit my profile", edit_customer_maintenance_path(current_user) %></li>
+
               <li><%= link_to "Sign out", sign_out_path %></li>
             </ul>
           </li>
         </ul>
         <% end %>
+        <% end %>
   </div>
 </div>
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <p class="navbar-text" align="center">©Copyright 2013</p>
+  </div>
+</div>
+<br><br><br>
 <div class="container">
   <% flash.each do |key, value| %>
       <div>
@@ -44,12 +68,28 @@
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       </div>
   <% end %>
-
-  <% if admin? %>
-    <%= admin_user.name %>
-  <% end %>
-
     <%= yield %>
 </div>
+
+<div id="adminModal" class="modal hide fade">
+  <div class="modal-header" style="background-color: black; color: white;">
+    <a class="close" data-dismiss="modal" style="color: #f5f5f5;">X</a>
+    <h3>Admin Access</h3>
+  </div>
+  <div class="modal-body" align="center">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
+        <%= f.submit "Sign in", class: "btn btn-inverse" %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>
+<br><br><br>
 </body>
 </html>

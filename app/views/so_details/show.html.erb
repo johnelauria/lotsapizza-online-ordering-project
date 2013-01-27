@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Outlet code:</b>
   <%= @so_detail.outlet_code %>
@@ -42,7 +40,7 @@
 
 <p>
   <b>Unit price:</b>
-  <%= @so_detail.unit_price %>
+  <%= sprintf("P%0.02f", @so_detail.unit_price) %>
 </p>
 
 <p>
@@ -52,9 +50,7 @@
 
 <p>
   <b>Amount:</b>
-  <%= @so_detail.amount %>
+  <%= sprintf("P%0.02f", @so_detail.amount) %>
 </p>
 
-
-<%= link_to 'Edit', edit_so_detail_path(@so_detail) %> |
 <%= link_to 'Back', product_maintenances_path%>

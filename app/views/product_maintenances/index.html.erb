@@ -1,5 +1,10 @@
 <h1>Products Available</h1>
 
+<%= search_form_for @q do |f| %>
+    <%= f.text_field :product_description_cont, placeholder: "Product name", class: "input-medium search-query" %>
+    <%= f.submit "Search", class: "btn" %>
+<% end %>
+
 <table class="table">
   <tr>
     <th>Product code</th>
@@ -17,25 +22,31 @@
     <th></th>
   </tr>
 
-<% @product_maintenances.each do |product_maintenance| %>
+<% @product_maintenance.each do |product_maintenance| %>
   <tr>
     <td><%= product_maintenance.product_code %></td>
     <td><%= product_maintenance.product_description %></td>
     <td><%= product_maintenance.po_unit %></td>
     <td><%= product_maintenance.issue_unit %></td>
     <td><%= product_maintenance.conversion_factor %></td>
-    <td><%= product_maintenance.subject_to_vat %></td>
-    <td><%= product_maintenance.subject_to_finance_late_charge %></td>
+    <td><%= product_maintenance.subject_to_vat ? 'yes' : 'no' %></td>
+    <td><%= product_maintenance.subject_to_finance_late_charge ? 'yes' : 'no' %></td>
     <td><%= product_maintenance.eligible_for_discount %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
+    <% if signed_in? %>
     <td><%= link_to 'Order this product', product_maintenance, class: "btn btn-mini" %></td>
+    <% end %>
+    <% if admin? %>
     <td><%= link_to 'Edit', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
     <td><%= link_to 'Destroy', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <% end %>
   </tr>
   <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Product maintenance', new_product_maintenance_path %>
+<% if admin? %>
+<%= link_to 'Create New Product', new_product_maintenance_path, class: "btn" %>
+<% end %>

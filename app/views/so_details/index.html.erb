@@ -1,12 +1,13 @@
-<h1>Listing so_details</h1>
+<h1>Sales Order Details</h1>
 
-<%= search_form_for @q do |f| %>
-    <%= f.label :outlet_code_cont %>
-    <%= f.text_field :outlet_code_cont%>
-    <%= f.submit %>
-<% end %>
+<div class="form-search">
+  <%= search_form_for @q do |f| %>
+      <%= f.text_field :outlet_code_cont, placeholder: "Search Outlet code", class: "input-medium search-query" %>
+      <%= f.submit class: "btn" %>
+  <% end %>
+</div>
 
-<table>
+<table class="table">
   <tr>
     <th>Outlet code</th>
     <th>Outlet name</th>

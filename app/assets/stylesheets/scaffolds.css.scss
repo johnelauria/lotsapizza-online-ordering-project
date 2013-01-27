@@ -8,6 +8,10 @@ body {
   line-height: 18px;
 }
 
+.navbar-inner {
+  background-color: #ff4500;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -20,10 +24,20 @@ pre {
   font-size: 11px;
 }
 
+.table tr:hover {
+  background-color: #eaeaea;
+}
+
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+  }
+}
+
+.hero-unit {
+  h1 {
+    font-size: 55px;
   }
 }
 

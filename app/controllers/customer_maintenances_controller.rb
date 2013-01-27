@@ -1,8 +1,9 @@
 class CustomerMaintenancesController < ApplicationController
   # GET /customer_maintenances
   # GET /customer_maintenances.json
+
   def index
-    @customer_maintenances = CustomerMaintenance.all
+    @customer_maintenances = CustomerMaintenance.paginate(page: params[:page], order: "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

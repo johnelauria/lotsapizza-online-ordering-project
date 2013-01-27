@@ -1,4 +1,4 @@
-<h1>Listing admins</h1>
+<h1>Admin Accounts</h1>
 
 <table class="table">
   <tr>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_admin_path unless admin? %>

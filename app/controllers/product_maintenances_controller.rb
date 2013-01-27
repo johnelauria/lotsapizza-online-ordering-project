@@ -1,9 +1,12 @@
 class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances
   # GET /product_maintenances.json
+
   def index
-    @product_maintenances = ProductMaintenance.all
+    @product_maintenances = ProductMaintenance.all.reverse
     @so_detail = SoDetail.new(params[:so_detail])
+    @q = ProductMaintenance.search(params[:q])
+    @product_maintenance = @q.result(distinct: true).paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

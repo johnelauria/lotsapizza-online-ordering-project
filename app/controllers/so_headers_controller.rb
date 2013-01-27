@@ -1,10 +1,13 @@
 class SoHeadersController < ApplicationController
   # GET /so_headers
   # GET /so_headers.json
+
+  before_filter :restrict_customer_access, only: [:index]
+
   def index
     @so_headers = SoHeader.all
     @q = SoHeader.search(params[:q])
-    @so_header = @q.result(distinct: true)
+    @so_header = @q.result(distinct: true).reverse
 
     respond_to do |format|
       format.html # index.html.erb
