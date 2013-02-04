@@ -9,7 +9,6 @@ class ProductMaintenancesController < ApplicationController
     @so_detail = SoDetail.new(params[:so_detail])
     @q = ProductMaintenance.search(params[:q])
     @product_maintenance = @q.result(distinct: true).paginate(page: params[:page])
-<<<<<<< HEAD
     if signed_in?
           if current_user.so_headers.last.nil?
             SoHeader.create(
@@ -53,9 +52,6 @@ class ProductMaintenancesController < ApplicationController
             )
           end
     end
-=======
-
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @product_maintenances }
@@ -67,36 +63,6 @@ class ProductMaintenancesController < ApplicationController
   def show
     @product_maintenance = ProductMaintenance.find(params[:id])
     @so_detail = SoDetail.new(params[:so_detail])
-<<<<<<< HEAD
-=======
-    if current_user.so_headers.last.nil?
-      SoHeader.create(
-          customer_maintenance_id: current_user.id,
-          outlet_code: current_user.outlet_code,
-          company_code: 0,
-          outlet_name: current_user.outlet_name,
-          customer_name: current_user.customer_name,
-          delivery_group: current_user.delivery_group_code,
-          order_date: Date.today,
-          delivery_date: Date.tomorrow,
-          production_date: Date.today
-      )
-    end
-
-    if current_user.so_headers.last.order_date != Date.today
-      SoHeader.create(
-          customer_maintenance_id: current_user.id,
-          outlet_code: current_user.outlet_code,
-          company_code: 0,
-          outlet_name: current_user.outlet_name,
-          customer_name: current_user.customer_name,
-          delivery_group: current_user.delivery_group_code,
-          order_date: Date.today,
-          delivery_date: Date.tomorrow,
-          production_date: Date.today
-      )
-    end
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
 
     respond_to do |format|
       format.html # show.html.erb

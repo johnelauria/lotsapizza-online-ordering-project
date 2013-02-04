@@ -3,10 +3,7 @@ class SoDetailsController < ApplicationController
   # GET /so_details.json
 
   before_filter :restrict_customer_access, only: [:index]
-<<<<<<< HEAD
 
-=======
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
   def index
     @so_details = SoDetail.paginate(page: params[:page])
     @q = SoDetail.search(params[:q])
@@ -50,7 +47,6 @@ class SoDetailsController < ApplicationController
   def create
     @so_detail = SoDetail.new(params[:so_detail])
 
-<<<<<<< HEAD
     if ProductMaintenance.find_by_product_code(@so_detail.product_code).on_hand >= @so_detail.quantity
       respond_to do |format|
         if @so_detail.save
@@ -65,16 +61,6 @@ class SoDetailsController < ApplicationController
     else
       flash[:error] = "Sorry. We currently have insufficient supply of the product you ordered. We'll try to stash up our supply ASAP to resolve your concerns."
       redirect_to product_maintenances_path
-=======
-    respond_to do |format|
-      if @so_detail.save
-        format.html { redirect_to product_maintenances_path, notice: 'So detail was successfully created.' }
-        format.json { render json: @so_detail, status: :created, location: @so_detail }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @so_detail.errors, status: :unprocessable_entity }
-      end
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     end
   end
 
@@ -98,10 +84,7 @@ class SoDetailsController < ApplicationController
   # DELETE /so_details/1.json
   def destroy
     @so_detail = SoDetail.find(params[:id])
-<<<<<<< HEAD
     ProductMaintenance.find_by_product_code(@so_detail.product_code).update_attributes(on_hand: (ProductMaintenance.find_by_product_code(@so_detail.product_code).on_hand + @so_detail.quantity))
-=======
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     @so_detail.destroy
 
     respond_to do |format|

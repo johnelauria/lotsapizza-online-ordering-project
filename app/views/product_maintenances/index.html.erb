@@ -27,23 +27,14 @@
 </div>
 </div>
 <% unless admin? %>
-<<<<<<< HEAD
 <a href="#totalOrders" class="btn" data-toggle="modal"><%= pluralize(current_user.so_headers.find(current_user.so_headers.last.id).so_details.count, "Order") %> in your cart</a>
 <% end %>
 <table class="table table-striped">
-=======
-<a href="#totalOrders" class="btn" data-toggle="modal">Total orders</a>
-<% end %>
-<table class="table">
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
   <tr>
     <th>Product code</th>
     <th>Product description</th>
     <th>Category</th>
-<<<<<<< HEAD
     <th>Quantity on hand</th>
-=======
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     <th>Po unit</th>
     <% if admin? %>
     <th>Subject to vat</th>
@@ -51,10 +42,6 @@
     <th>Eligible for discount</th>
     <% end %>
     <th>Issue unit</th>
-<<<<<<< HEAD
-=======
-    <th>Conversion factor</th>
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     <th>Purchase price</th>
     <th>Selling price</th>
     <th></th>
@@ -67,7 +54,6 @@
     <td><%= product_maintenance.product_code %></td>
     <td><%= product_maintenance.product_description %></td>
     <td><%= product_maintenance.category %></td>
-<<<<<<< HEAD
     <td><%= product_maintenance.on_hand %></td>
     <td><%= product_maintenance.po_unit %></td>
     <% if admin? %>
@@ -76,21 +62,10 @@
     <td><%= product_maintenance.eligible_for_discount ? 'yes' : 'no' %></td>
     <% end %>
     <td><%= product_maintenance.issue_unit %></td>
-=======
-    <td><%= product_maintenance.po_unit %></td>
-    <% if admin? %>
-    <td><%= product_maintenance.subject_to_vat %></td>
-    <td><%= product_maintenance.subject_to_finance_late_charge %></td>
-    <td><%= product_maintenance.eligible_for_discount %></td>
-    <% end %>
-    <td><%= product_maintenance.issue_unit %></td>
-    <td><%= product_maintenance.conversion_factor %></td>
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     
     <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
     <% if signed_in? %>
-<<<<<<< HEAD
 
     <%= form_for(@so_detail) do |f| %>
 
@@ -121,12 +96,6 @@
     <% end %>
     <% if admin? %>
     <td><%= link_to 'Update', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
-=======
-    <td><%= link_to 'Order this product', product_maintenance, class: "btn btn-mini" %></td>
-    <% end %>
-    <% if admin? %>
-    <td><%= link_to 'Edit', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
->>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     <td><%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
   </tr>
