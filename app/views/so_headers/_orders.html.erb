@@ -1,0 +1,29 @@
+    <table class="table">
+      <tr>
+        <th>Product name</th>
+        <th>Time ordered</th>
+        <th>Unit_price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+      </tr>
+      <% @so_header.so_details.each do |detail| %>
+        <tr>
+          <td><%= ProductMaintenance.find_by_product_code(detail.product_code).product_description %></td>
+          <td><%= detail.created_at.strftime("%H:%M") %></td>
+          <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
+          <td><%= detail.quantity %></td>
+          <td><%= sprintf("P%0.02f", detail.amount) %></td>
+          <% if signed_in? %>
+          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status.nil? %></td>
+          <% end %>
+        </tr>
+      <% end %>
+        <tr>
+          <td><strong>Total: </strong></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong><%= sprintf("P%0.02f", @so_header.total_order_amount) %></strong></td>
+        </tr>
+
+    </table>

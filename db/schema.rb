@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125052409) do
+ActiveRecord::Schema.define(:version => 20130127040745) do
 
   create_table "admins", :force => true do |t|
     t.string "name"
@@ -67,9 +67,6 @@ ActiveRecord::Schema.define(:version => 20130125052409) do
     t.boolean "eligible_for_discount"
     t.decimal "purchase_price",                 :default => 0.0, :null => false
     t.decimal "selling_price",                  :default => 0.0, :null => false
-    t.integer "re_order_point"
-    t.string  "vendor"
-    t.string  "stocking_company"
     t.boolean "raw_materials"
     t.string  "sort_code"
     t.string  "product_code"

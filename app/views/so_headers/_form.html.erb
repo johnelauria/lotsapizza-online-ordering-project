@@ -50,11 +50,11 @@
         <% end %>
   <div class="field">
     <%= f.label :order_status %><br />
-    <%= f.text_field :order_status %>
+    <%= f.select :order_status, "<option>open</option><option>void</option><option>invoiced".html_safe, prompt: "please select order status" %>
   </div>
   <div class="field">
     <%= f.label :sales_invoice_num %><br />
-    <%= f.number_field :sales_invoice_num %>
+    <%= f.text_field :sales_invoice_num %>
   </div>
 
     <%= f.hidden_field :sales_invoice_date, value: Date.today %>

@@ -2,12 +2,56 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances
   # GET /product_maintenances.json
 
+  before_filter :restrict_customer_access, only: [:create, :new, :edit, :update, :destroy]
+
   def index
     @product_maintenances = ProductMaintenance.all.reverse
     @so_detail = SoDetail.new(params[:so_detail])
     @q = ProductMaintenance.search(params[:q])
     @product_maintenance = @q.result(distinct: true).paginate(page: params[:page])
+    if signed_in?
+          if current_user.so_headers.last.nil?
+            SoHeader.create(
+                customer_maintenance_id: current_user.id,
+                outlet_code: current_user.outlet_code,
+                company_code: 0,
+                outlet_name: current_user.outlet_name,
+                customer_name: current_user.customer_name,
+                delivery_group: current_user.delivery_group_code,
+                order_date: Date.today,
+                delivery_date: Date.tomorrow,
+                production_date: Date.today
+            )
+          end
 
+          if current_user.so_headers.last.order_date != Date.today
+            SoHeader.create(
+                customer_maintenance_id: current_user.id,
+                outlet_code: current_user.outlet_code,
+                company_code: 0,
+                outlet_name: current_user.outlet_name,
+                customer_name: current_user.customer_name,
+                delivery_group: current_user.delivery_group_code,
+                order_date: Date.today,
+                delivery_date: Date.tomorrow,
+                production_date: Date.today
+            )
+          end
+
+          unless current_user.so_headers.last.order_status.nil?
+            SoHeader.create(
+                customer_maintenance_id: current_user.id,
+                outlet_code: current_user.outlet_code,
+                company_code: 0,
+                outlet_name: current_user.outlet_name,
+                customer_name: current_user.customer_name,
+                delivery_group: current_user.delivery_group_code,
+                order_date: Date.today,
+                delivery_date: Date.tomorrow,
+                production_date: Date.today
+            )
+          end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @product_maintenances }
@@ -19,33 +63,6 @@ class ProductMaintenancesController < ApplicationController
   def show
     @product_maintenance = ProductMaintenance.find(params[:id])
     @so_detail = SoDetail.new(params[:so_detail])
-    if current_user.so_headers.last.nil?
-      SoHeader.create(
-          customer_maintenance_id: current_user.id,
-          outlet_code: current_user.outlet_code,
-          company_code: 0,
-          outlet_name: current_user.outlet_name,
-          customer_name: current_user.customer_name,
-          delivery_group: current_user.delivery_group_code,
-          order_date: Date.today,
-          delivery_date: Date.tomorrow,
-          production_date: Date.today
-      )
-    end
-
-    if current_user.so_headers.last.order_date != Date.today
-      SoHeader.create(
-          customer_maintenance_id: current_user.id,
-          outlet_code: current_user.outlet_code,
-          company_code: 0,
-          outlet_name: current_user.outlet_name,
-          customer_name: current_user.customer_name,
-          delivery_group: current_user.delivery_group_code,
-          order_date: Date.today,
-          delivery_date: Date.tomorrow,
-          production_date: Date.today
-      )
-    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -77,7 +94,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.save
-        format.html { redirect_to @product_maintenance, notice: 'Product maintenance was successfully created.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully created.' }
         format.json { render json: @product_maintenance, status: :created, location: @product_maintenance }
       else
         format.html { render action: "new" }
@@ -93,7 +110,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.update_attributes(params[:product_maintenance])
-        format.html { redirect_to @product_maintenance, notice: 'Product maintenance was successfully updated.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

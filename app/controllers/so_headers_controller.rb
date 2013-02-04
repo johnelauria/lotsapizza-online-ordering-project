@@ -4,6 +4,10 @@ class SoHeadersController < ApplicationController
 
   before_filter :restrict_customer_access, only: [:index]
 
+  def printable
+    @so_header = SoHeader.find(params[:id])
+  end
+
   def index
     @so_headers = SoHeader.all
     @q = SoHeader.search(params[:q])
@@ -65,6 +69,7 @@ class SoHeadersController < ApplicationController
 
     respond_to do |format|
       if @so_header.update_attributes(params[:so_header])
+        SoDetail.find_by_so_header_id(@so_header.id).update_attributes(sales_invoice_num: @so_header.sales_invoice_num)
         format.html { redirect_to @so_header, notice: 'So header was successfully updated.' }
         format.json { head :no_content }
       else

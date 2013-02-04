@@ -20,16 +20,19 @@
     <%= f.text_area :product_description, rows: 5 %>
   </div>
   <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category, "<option>Beverages</option><option>Boxes</option><option>Bread</option><option>Forms</option><option>Groceries</option><option>In can</option><option>Pizza Crust</option><option>Plastics</option><option>Toppings</option>".html_safe, prompt: "Select category" %>
+  <div class="field">
     <%= f.label :po_unit %><br />
     <%= f.select :po_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
   </div>
   <div class="field">
-    <%= f.label :issue_unit %><br />
-    <%= f.select :issue_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
+    <%= f.label :Quantity_on_hand %><br />
+    <%= f.text_field :on_hand %>
   </div>
   <div class="field">
-    <%= f.label :conversion_factor %><br />
-    <%= f.number_field :conversion_factor %>
+    <%= f.label :issue_unit %><br />
+    <%= f.select :issue_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
   </div>
   <div class="field">
     <%= f.label :subject_to_vat %><br />
@@ -50,18 +53,6 @@
   <div class="field">
     <%= f.label :selling_price %><br />
     <%= f.text_field :selling_price %>
-  </div>
-  <div class="field">
-    <%= f.label :re_order_point %><br />
-    <%= f.number_field :re_order_point %>
-  </div>
-  <div class="field">
-    <%= f.label :vendor %><br />
-    <%= f.text_field :vendor %>
-  </div>
-  <div class="field">
-    <%= f.label :stocking_company %><br />
-    <%= f.text_field :stocking_company %>
   </div>
   <div class="field">
     <%= f.label :raw_materials %><br />

@@ -14,7 +14,7 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="allSales">
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th>Outlet code</th>
     <th>Outlet name</th>
@@ -75,7 +75,7 @@
             <td><%= so_header.delivery_group %></td>
             <td><%= so_header.so_number %></td>
             <td><%= so_header.order_date %></td>
-            <td><%= so_header.grand_total %></td>
+            <td><%= sprintf("P%0.02f", so_header.grand_total) %></td>
             <td><%= so_header.order_status %></td>
             <td><%= so_header.sales_invoice_num %></td>
             <td><%= so_header.sales_invoice_date %></td>

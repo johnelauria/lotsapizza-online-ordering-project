@@ -1,5 +1,5 @@
 <h1>Sales Order Details: </h1>
-
+<%= link_to "Print", home_printable_path, class: "btn" if signed_in? %>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#salesOrder" data-toggle="tab">Sales Order Details</a></li>
   <li><a href="#customerDetails" data-toggle="tab">Customer Details</a></li>
@@ -107,31 +107,7 @@
 </p>
     </div>
   <div class="span9">
-    <table class="table">
-      <tr>
-        <th>Product name</th>
-        <th>Time ordered</th>
-        <th>Issue unit</th>
-        <th>Unit_price</th>
-        <th>Quantity</th>
-        <th>Amount</th>
-        <th></th>
-      </tr>
-      <% @so_header.so_details.each do |detail| %>
-        <tr>
-          <td><%= ProductMaintenance.find_by_product_code(detail.product_code).product_description %></td>
-          <td><%= detail.created_at.strftime("%H:%M") %></td>
-          <td><%= detail.issue_unit %></td>
-          <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
-          <td><%= detail.quantity %></td>
-          <td><%= sprintf("P%0.02f", detail.amount) %></td>
-          <% if signed_in? %>
-          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status.nil? %></td>
-          <% end %>
-        </tr>
-      <% end %>
-
-    </table>
+    <%= render 'orders' %>
   </div>
   </div>
   </div>

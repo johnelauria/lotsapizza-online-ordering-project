@@ -2,6 +2,7 @@
 
 <%= render "so_details/form" %>
 
+
 <h3>Details of this product: </h3>
 
 <p>
@@ -29,6 +30,7 @@
   <%= @product_maintenance.conversion_factor %>
 </p>
 
+<% if admin? %>
 <p>
   <b>Subject to vat:</b>
   <%= @product_maintenance.subject_to_vat %>
@@ -44,6 +46,8 @@
   <%= @product_maintenance.eligible_for_discount %>
 </p>
 
+<% end %>
+
 <p>
   <b>Purchase price:</b>
   <%= sprintf("P%0.02f", @product_maintenance.purchase_price) %>
@@ -55,30 +59,8 @@
 </p>
 
 <p>
-  <b>Re order point:</b>
-  <%= @product_maintenance.re_order_point %>
-</p>
-
-<p>
-  <b>Vendor:</b>
-  <%= @product_maintenance.vendor %>
-</p>
-
-<p>
-  <b>Stocking company:</b>
-  <%= @product_maintenance.stocking_company %>
-</p>
-
-<p>
-  <b>Raw materials:</b>
-  <%= @product_maintenance.raw_materials %>
-</p>
-
-<p>
   <b>Sort code:</b>
   <%= @product_maintenance.sort_code %>
 </p>
 
-
-<%= link_to 'Edit', edit_product_maintenance_path(@product_maintenance) %> |
 <%= link_to 'Back', product_maintenances_path %>
