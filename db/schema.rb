@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130204133858) do
+=======
+ActiveRecord::Schema.define(:version => 20130127131800) do
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
 
   create_table "admins", :force => true do |t|
     t.string "name"
@@ -30,10 +34,18 @@ ActiveRecord::Schema.define(:version => 20130204133858) do
     t.string   "mobile_num"
     t.string   "fax_num"
     t.string   "email_address"
+<<<<<<< HEAD
     t.string   "outlet_name"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.text     "outlet_address"
+=======
+    t.integer  "outlet_code"
+    t.string   "outlet_name"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "outlet_address"
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     t.string   "outlet_city"
     t.string   "outlet_billing_flag"
     t.string   "terms"
@@ -54,7 +66,10 @@ ActiveRecord::Schema.define(:version => 20130204133858) do
     t.string   "delivery_charge_computation"
     t.decimal  "msf_charge",                  :default => 0.0, :null => false
     t.decimal  "delivery_charge",             :default => 0.0, :null => false
+<<<<<<< HEAD
     t.string   "outlet_code"
+=======
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
   end
 
   create_table "product_maintenances", :force => true do |t|
@@ -71,7 +86,10 @@ ActiveRecord::Schema.define(:version => 20130204133858) do
     t.string  "sort_code"
     t.string  "product_code"
     t.string  "category"
+<<<<<<< HEAD
     t.integer "on_hand"
+=======
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
   end
 
   create_table "so_details", :force => true do |t|
