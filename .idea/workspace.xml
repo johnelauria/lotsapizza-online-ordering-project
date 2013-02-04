@@ -7,10 +7,10 @@
     <list default="true" id="40a702d5-e210-42cc-afd3-cfd9fcf1beed" name="Default" comment="">
       <change type="DELETED" beforePath="C:\railsapp\online_ordering\config\initializers\boolean_path.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/online_ordering.iml" afterPath="$PROJECT_DIR$/.idea/online_ordering.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/Thumbs.db" afterPath="$PROJECT_DIR$/app/assets/images/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/customer_maintenances_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/customer_maintenances_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
@@ -31,6 +31,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/so_headers/show.html.erb" afterPath="$PROJECT_DIR$/app/views/so_headers/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/so_details_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/so_details_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/so_headers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/so_headers_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/product_maintenances/index.html.erb" afterPath="$PROJECT_DIR$/app/views/product_maintenances/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/so_details/index.html.erb" afterPath="$PROJECT_DIR$/app/views/so_details/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/so_headers/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/so_headers/_form.html.erb" />
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
     </list>
     <ignored path="online_ordering.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +63,11 @@
       <file leaf-file-name="so_details_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/so_details_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="21" column="44" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+=======
+            <state line="19" column="44" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
               <folding />
             </state>
           </provider>
@@ -65,7 +76,11 @@
       <file leaf-file-name="so_headers_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/so_headers_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="57" column="31" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0">
+=======
+            <state line="53" column="31" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
               <folding />
             </state>
           </provider>
@@ -74,7 +89,11 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/product_maintenances/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="38" column="67" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
+=======
+            <state line="33" column="67" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
               <folding />
             </state>
           </provider>
@@ -101,7 +120,11 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/so_details/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="16" column="29" selection-start="426" selection-end="426" vertical-scroll-proportion="0.54075545">
+=======
+            <state line="18" column="35" selection-start="480" selection-end="480" vertical-scroll-proportion="0.6083499">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
               <folding />
             </state>
           </provider>
@@ -110,7 +133,11 @@
       <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="87" column="25" selection-start="3646" selection-end="3646" vertical-scroll-proportion="0.0">
+=======
+            <state line="90" column="25" selection-start="3733" selection-end="3733" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
               <folding />
             </state>
           </provider>
@@ -125,8 +152,13 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="so_headers_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/so_headers_helper.rb">
+=======
+      <file leaf-file-name="so_detail.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/so_detail.rb">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -134,8 +166,13 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="so_detail.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/so_detail.rb">
+=======
+      <file leaf-file-name="so_headers_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/so_headers_helper.rb">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -618,7 +655,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924336" sideWeight="0.6738056" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31697342" sideWeight="0.6738056" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30981594" sideWeight="0.6738056" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3261944" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -727,14 +768,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="87" column="25" selection-start="3646" selection-end="3646" vertical-scroll-proportion="0.0">
+=======
+        <state line="90" column="25" selection-start="3733" selection-end="3733" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/so_details_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="21" column="44" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+=======
+        <state line="19" column="44" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <folding />
         </state>
       </provider>
@@ -760,14 +809,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/so_headers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="57" column="31" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0">
+=======
+        <state line="53" column="31" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/product_maintenances/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="38" column="67" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
+=======
+        <state line="33" column="67" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <folding />
         </state>
       </provider>
@@ -781,7 +838,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/so_details/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="16" column="29" selection-start="426" selection-end="426" vertical-scroll-proportion="0.54075545">
+=======
+        <state line="18" column="35" selection-start="480" selection-end="480" vertical-scroll-proportion="0.6083499">
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
           <folding />
         </state>
       </provider>

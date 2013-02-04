@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130127040745) do
+=======
+ActiveRecord::Schema.define(:version => 20130127131800) do
+>>>>>>> d96fef68555b9d53b0086d928cdf258cee8d5b95
 
   create_table "admins", :force => true do |t|
     t.string "name"
@@ -70,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130127040745) do
     t.boolean "raw_materials"
     t.string  "sort_code"
     t.string  "product_code"
+    t.string  "category"
   end
 
   create_table "so_details", :force => true do |t|
