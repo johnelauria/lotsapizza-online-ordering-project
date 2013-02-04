@@ -1,0 +1,40 @@
+<%= form_for(@so_detail) do |f| %>
+  <% if @so_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@so_detail.errors.count, "error") %> prohibited this so_detail from being saved:</h2>
+
+      <ul>
+      <% @so_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.hidden_field :outlet_code, value: current_user.outlet_code %>
+
+    <%= f.hidden_field :outlet_name, value: current_user.outlet_name %>
+
+    <%= f.hidden_field :customer_name, value: current_user.customer_name %>
+
+    <%= f.hidden_field :delivery_group, value: current_user.delivery_group_code %>
+
+    <%= f.hidden_field :product_code, value: @product_maintenance.product_code %>
+
+    <%= f.hidden_field :issue_unit, value: @product_maintenance.conversion_factor %>
+
+    <%= f.hidden_field :unit_price, value: @product_maintenance.purchase_price %>
+
+    <%= f.hidden_field :so_number, value: current_user.so_headers.last.id %>
+
+    <%= f.hidden_field :so_header_id, value: current_user.so_headers.last.id %>
+
+  <div class="field">
+    <%= f.label "How many would you like to order?" %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit Order", class: "btn" %>
+  </div>
+<% end %>

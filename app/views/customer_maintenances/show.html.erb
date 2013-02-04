@@ -1,0 +1,185 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#orders" data-toggle="tab">Orders</a></li>
+  <li><a href="#profile_info" data-toggle="tab">Profile Information</a></li>
+</ul>
+
+<div class="tab-content">
+<div id="orders" class="tab-pane active">
+<table class="table">
+  <tr>
+    <th>Order Date</th>
+    <th>Grand Total</th>
+    <th>Order Status</th>
+    <th>Sales Invoice #</th>
+    <th>Sales Invoice Date</th>
+  </tr>
+<% @customer_maintenance.so_headers.reverse.each do |header| %>
+  <tr>
+    <td><%= link_to header.order_date, header %></td>
+    <td><%= sprintf("P%0.02f", header.grand_total) %></td>
+    <% if header.order_status.nil? %>
+        <td>Pending...</td>
+    <% else %>
+        <td><%= header.order_status %></td>
+    <% end %>
+    <% if header.sales_invoice_num.nil? %>
+        <td>Pending...</td>
+    <% else %>
+    <td><%= header.sales_invoice_num %></td>
+    <% end %>
+    <% if header.sales_invoice_date.nil? %>
+        <td>Pending...</td>
+    <% else %>
+    <td><%= header.sales_invoice_date %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<div class="tab-pane fade" id="profile_info">
+<p>
+  <b>Customer type:</b>
+  <%= @customer_maintenance.customer_type %>
+</p>
+
+<p>
+  <b>Customer name:</b>
+  <%= @customer_maintenance.customer_name %>
+</p>
+
+<p>
+  <b>Customer tax:</b>
+  <%= @customer_maintenance.customer_tax_id %>
+</p>
+
+<p>
+  <b>Vat registered:</b>
+  <%= @customer_maintenance.vat_registered ? 'yes' : 'no' %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @customer_maintenance.contact_name %>
+</p>
+
+<p>
+  <b>Primary phone:</b>
+  <%= @customer_maintenance.primary_phone %>
+</p>
+
+<p>
+  <b>Mobile num:</b>
+  <%= @customer_maintenance.mobile_num %>
+</p>
+
+<p>
+  <b>Fax num:</b>
+  <%= @customer_maintenance.fax_num %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%= @customer_maintenance.email_address %>
+</p>
+
+<p>
+  <b>Outlet code:</b>
+  <%= "%03d" % @customer_maintenance.id %>
+</p>
+
+<p>
+  <b>Outlet name: </b>
+  <%= @customer_maintenance.outlet_name %>
+</p>
+
+<p>
+  <b>Outlet Address: </b>
+  <%= @customer_maintenance.outlet_address %>
+</p>
+
+<p>
+  <b>Outlet City / Town: </b>
+  <%= @customer_maintenance.outlet_city %>
+</p>
+
+<p>
+  <b>Outlet / Billing flag: </b>
+  <%= @customer_maintenance.outlet_billing_flag %>
+</p>
+
+<p>
+  <b>Billing Address: </b>
+  <%= @customer_maintenance.billing_address %>
+</p>
+
+<p>
+  <b>Billing City / Town: </b>
+  <%= @customer_maintenance.billing_city_town %>
+</p>
+
+<p>
+  <b>Terms: </b>
+  <%= @customer_maintenance.terms %>
+</p>
+
+<p>
+  <b>MSF Charge: </b>
+  <%= @customer_maintenance.msf_charge %> computed by <%= @customer_maintenance.msf_charge_computation %>
+</p>
+
+<p>
+  <b>Delivery Charge: </b>
+  <%= @customer_maintenance.delivery_charge %> computed by <%= @customer_maintenance.delivery_charge_computation %>
+</p>
+
+<p>
+  <b>Status: </b>
+  <%= @customer_maintenance.status %>
+</p>
+
+<p>
+  <b>Order Schedule: </b>
+  <%= @customer_maintenance.order_schedule %>
+</p>
+
+<p>
+  <b>Delivery Group Code: </b>
+  <%= @customer_maintenance.delivery_group_code %>
+</p>
+
+<p>
+  <b>Production Group Code: </b>
+  <%= @customer_maintenance.production_group_code %>
+</p>
+
+<p>
+  <b>Delivery Notes: </b>
+  <%= @customer_maintenance.delivery_notes %>
+</p>
+
+<p>
+  <b>Additional Notes: </b>
+  <%= @customer_maintenance.additional_notes %>
+</p>
+
+<p>
+  <b>Assess Finance / Late Charges: </b>
+  <%= @customer_maintenance.assess_finance_late_charges %>
+</p>
+
+<p>
+  <b>Finance / Late Charge: </b>
+  <%= @customer_maintenance.finance_late_charges %>
+</p>
+
+<p>
+  <b>Credit Limit: </b>
+  <%= @customer_maintenance.credit_limit %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_maintenance_path(@customer_maintenance) %> |
+<%= link_to 'Back', customer_maintenances_path %>
+</div>
+</div>

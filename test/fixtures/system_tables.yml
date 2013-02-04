@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company_name: MyString
+  company_address: MyText
+  tax_ID_number: MyString
+  vat_registered: false
+  vat_registration: MyString
+  bir_accreditation_number: MyString
+  vat_percent: 9.99
+  telephone_number: MyString
+  fax_number: MyString
+  email_address: MyString
+  web_address: MyString
+
+two:
+  company_name: MyString
+  company_address: MyText
+  tax_ID_number: MyString
+  vat_registered: false
+  vat_registration: MyString
+  bir_accreditation_number: MyString
+  vat_percent: 9.99
+  telephone_number: MyString
+  fax_number: MyString
+  email_address: MyString
+  web_address: MyString

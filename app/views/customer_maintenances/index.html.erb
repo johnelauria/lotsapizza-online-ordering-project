@@ -1,0 +1,70 @@
+<h1>Customers</h1>
+
+<br />
+
+<div class="accordion" id="searchField">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="searchField" href="#customerType">Search by Customer Type</a>
+        </div>
+        <div id="customerType" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <%= search_form_for @q do |f| %>
+                 <%= f.select :customer_type_cont, "<option>Company-Owned</option><option>Franchised</option><option>MetroPizza</option><option>Events</option><option>Others</option".html_safe, prompt: "Select Customer type", class: "input-medium search-query" %>
+                     <%= f.submit "Search", class: "btn" %>
+                    <% end %>
+            </div>
+        </div>
+            <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="searchField" href="#customerName">Search by Customer Name</a>
+            <div id="customerName" class="accordion-body collapse">
+                <div class="accordion-inner">
+                <%= search_form_for @q do |f| %>
+    <%= f.text_field :customer_name_cont, placeholder: "Customer Name", class: "input-medium search-query" %>
+    <%= f.submit "Search", class: "btn" %>
+<% end %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<%= will_paginate %>
+<br>
+
+<table class="table table-striped">
+  <tr>
+    <th>Customer type</th>
+    <th>Customer name</th>
+    <th>Customer tax</th>
+    <th>Vat registered</th>
+    <th>Outlet code</th>
+    <th>Outlet name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customer_maintenance.each do |customer_maintenance| %>
+  <tr>
+    <td><%= customer_maintenance.customer_type %></td>
+    <td><%= customer_maintenance.customer_name %></td>
+    <td><%= customer_maintenance.customer_tax_id %></td>
+    <td><%= customer_maintenance.vat_registered ? 'yes' : 'no' %></td>
+    <td><%= customer_maintenance.outlet_code %></td>
+    <td><%= customer_maintenance.outlet_name %></td>
+    <td><%= link_to 'Show', customer_maintenance, class: "btn btn-mini" %></td>
+    <td><%= link_to 'Edit', edit_customer_maintenance_path(customer_maintenance), class: "btn btn-mini" %></td>
+    <td><%= link_to 'Delete', customer_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= will_paginate %>
+<br />
+
+<%= link_to "New Customer", new_customer_maintenance_path , class: "btn" %>
+

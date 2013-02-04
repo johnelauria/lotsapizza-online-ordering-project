@@ -1,0 +1,46 @@
+<h1>Sales Order Details</h1>
+
+<div class="form-search">
+  <%= search_form_for @q do |f| %>
+      <%= f.text_field :outlet_code_cont, placeholder: "Search Outlet code", class: "input-medium search-query" %>
+      <%= f.submit class: "btn" %>
+  <% end %>
+</div>
+<br>
+<%= will_paginate %>
+<br />
+<table class="table table-striped">
+  <tr>
+    <th>Outlet code</th>
+    <th>Outlet name</th>
+    <th>Customer name</th>
+    <th>Delivery group</th>
+    <th>So number</th>
+    <th>Sales invoice num</th>
+    <th>Product code</th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @so_details.each do |so_detail| %>
+  <tr>
+    <td><%= so_detail.outlet_code %></td>
+    <td><%= so_detail.outlet_name %></td>
+    <td><%= so_detail.customer_name %></td>
+    <td><%= so_detail.delivery_group %></td>
+    <td><%= so_detail.so_number %></td>
+    <td><%= so_detail.sales_invoice_num %></td>
+    <td><%= so_detail.product_code %></td>
+    <td><%= sprintf("P%0.02f", so_detail.unit_price) %></td>
+    <td><%= so_detail.quantity %></td>
+    <td><%= sprintf("P%0.02f", so_detail.amount) %></td>
+    <td><%= link_to 'Show', so_detail, class: "btn btn-mini" %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= will_paginate %>

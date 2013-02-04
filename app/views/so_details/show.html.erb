@@ -1,0 +1,56 @@
+<p>
+  <b>Outlet code:</b>
+  <%= @so_detail.outlet_code %>
+</p>
+
+<p>
+  <b>Outlet name:</b>
+  <%= @so_detail.outlet_name %>
+</p>
+
+<p>
+  <b>Customer name:</b>
+  <%= @so_detail.customer_name %>
+</p>
+
+<p>
+  <b>Delivery group:</b>
+  <%= @so_detail.delivery_group %>
+</p>
+
+<p>
+  <b>So number:</b>
+  <%= @so_detail.so_number %>
+</p>
+
+<p>
+  <b>Sales invoice num:</b>
+  <%= @so_detail.sales_invoice_num %>
+</p>
+
+<p>
+  <b>Product code:</b>
+  <%= @so_detail.product_code %>
+</p>
+
+<p>
+  <b>Issue unit:</b>
+  <%= @so_detail.issue_unit %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%= sprintf("P%0.02f", @so_detail.unit_price) %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @so_detail.quantity %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= sprintf("P%0.02f", @so_detail.amount) %>
+</p>
+
+<%= link_to 'Back', product_maintenances_path%>

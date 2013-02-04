@@ -1,0 +1,43 @@
+<h1>Listing system_tables</h1>
+
+<table>
+  <tr>
+    <th>Company name</th>
+    <th>Company address</th>
+    <th>Tax id number</th>
+    <th>Vat registered</th>
+    <th>Vat registration</th>
+    <th>Bir accreditation number</th>
+    <th>Vat percent</th>
+    <th>Telephone number</th>
+    <th>Fax number</th>
+    <th>Email address</th>
+    <th>Web address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @system_tables.each do |system_table| %>
+  <tr>
+    <td><%= system_table.company_name %></td>
+    <td><%= system_table.company_address %></td>
+    <td><%= system_table.tax_ID_number %></td>
+    <td><%= system_table.vat_registered %></td>
+    <td><%= system_table.vat_registration %></td>
+    <td><%= system_table.bir_accreditation_number %></td>
+    <td><%= system_table.vat_percent %></td>
+    <td><%= system_table.telephone_number %></td>
+    <td><%= system_table.fax_number %></td>
+    <td><%= system_table.email_address %></td>
+    <td><%= system_table.web_address %></td>
+    <td><%= link_to 'Show', system_table %></td>
+    <td><%= link_to 'Edit', edit_system_table_path(system_table) %></td>
+    <td><%= link_to 'Destroy', system_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New System table', new_system_table_path %>

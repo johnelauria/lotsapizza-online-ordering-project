@@ -1,0 +1,81 @@
+@import "bootstrap";
+
+body {
+  background-image:url("background3.jpg");
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.navbar-inner {
+  background-color: #ff4500;
+}
+
+.hero_unit {
+  background-color: none;
+  background-image: "BANNER.jpg";
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.table tr:hover {
+  background-color: #eaeaea;
+}
+
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.hero-unit {
+  h1 {
+    font-size: 55px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  display: table;
+  @extend .control-group;
+  @extend .error
+}
+
+#error_explanation {
+  width: 450px;
+  border: 1px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    color: #ff0000;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+    color: #ff0000;
+  }
+}

@@ -1,0 +1,61 @@
+<%= form_for(@system_table) do |f| %>
+  <% if @system_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@system_table.errors.count, "error") %> prohibited this system_table from being saved:</h2>
+
+      <ul>
+      <% @system_table.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :company_address %><br />
+    <%= f.text_area :company_address %>
+  </div>
+  <div class="field">
+    <%= f.label :tax_ID_number %><br />
+    <%= f.text_field :tax_ID_number %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_registered %><br />
+    <%= f.check_box :vat_registered %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_registration %><br />
+    <%= f.text_field :vat_registration %>
+  </div>
+  <div class="field">
+    <%= f.label :bir_accreditation_number %><br />
+    <%= f.text_field :bir_accreditation_number %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_percent %><br />
+    <%= f.text_field :vat_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone_number %><br />
+    <%= f.text_field :telephone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :fax_number %><br />
+    <%= f.text_field :fax_number %>
+  </div>
+  <div class="field">
+    <%= f.label :email_address %><br />
+    <%= f.text_field :email_address %>
+  </div>
+  <div class="field">
+    <%= f.label :web_address %><br />
+    <%= f.text_field :web_address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

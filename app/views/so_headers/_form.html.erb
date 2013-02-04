@@ -1,0 +1,65 @@
+<%= form_for(@so_header) do |f| %>
+  <% if @so_header.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@so_header.errors.count, "error") %> prohibited this so_header from being saved:</h2>
+
+      <ul>
+      <% @so_header.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% unless admin? %>
+    <%= f.label :outlet_code %><br />
+    <%= f.number_field :outlet_code %>
+  </div>
+
+    <%= f.hidden_field :company_code, value: @so_header.id %>
+
+    <%= f.hidden_field :so_number, value: @so_header.id %>
+
+    <%= f.hidden_field :order_date, value: Date.today %>
+
+    <%= f.hidden_field :delivery_date, value: Date.tomorrow %>
+
+    <%= f.hidden_field :production_date, value: Date.today %>
+
+  <div class="field">
+    <%= f.label :total_order_amount %><br />
+    <%= f.text_field :total_order_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :vat %><br />
+    <%= f.text_field :vat %>
+  </div>
+  <div class="field">
+    <%= f.label :msf_charge %><br />
+    <%= f.text_field :msf_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_charge %><br />
+    <%= f.text_field :delivery_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :grand_total %><br />
+    <%= f.text_field :grand_total %>
+  </div>
+        <% end %>
+  <div class="field">
+    <%= f.label :order_status %><br />
+    <%= f.select :order_status, "<option>open</option><option>void</option><option>invoiced".html_safe, prompt: "please select order status" %>
+  </div>
+  <div class="field">
+    <%= f.label :sales_invoice_num %><br />
+    <%= f.text_field :sales_invoice_num %>
+  </div>
+
+    <%= f.hidden_field :sales_invoice_date, value: Date.today %>
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn" %>
+  </div>
+<% end %>

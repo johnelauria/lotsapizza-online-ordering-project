@@ -1,0 +1,145 @@
+<%= form_for(@customer_maintenance) do |f| %>
+  <% if @customer_maintenance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer_maintenance.errors.count, "error") %> prohibited this customer_maintenance from being saved:</h2>
+      <ul>
+      <% @customer_maintenance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_type %><br />
+    <%= f.select :customer_type, "<option>Company-Owned</option><option>Franchised</option><option>MetroPizza</option><option>Events</option><option>Others</option>".html_safe, prompt: "Please select customer type" %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_tax_id %><br />
+    <%= f.text_field :customer_tax_id, placeholder: "XXX-XXX-XXX-XXX format" %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_registered %><br />
+    <%= f.check_box :vat_registered %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br />
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_phone %><br />
+    <%= f.text_field :primary_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_num %><br />
+    <%= f.text_field :mobile_num %>
+  </div>
+  <div class="field">
+    <%= f.label :fax_num %><br />
+    <%= f.text_field :fax_num %>
+  </div>
+  <div class="field">
+    <%= f.label :email_address %><br />
+    <%= f.text_field :email_address %>
+  </div>
+    <% if @customer_maintenance.outlet_code.nil? %>
+    <div class="field">
+      <%= f.label :outlet_code %>
+      <%= f.text_field :outlet_code, placeholder: "Enter 3 digit code" %> <small><span class="label label-important">No editing after save</span></small>
+    </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <div class="field">
+    <%= f.label :outlet_name %><br />
+    <%= f.text_field :outlet_name %>
+  </div>
+    <div class="field">
+      <%= f.label :outlet_address %><br />
+      <%= f.text_area :outlet_address, rows: 5 %>
+    </div>
+    <div class="field">
+      <%= f.label "Outlet city / Town" %><br />
+      <%= f.text_field :outlet_city %>
+    </div>
+    <div class="field">
+      <%= f.label "Outlet billing / flag" %><br />
+      <%= f.text_field :outlet_billing_flag %>
+    </div>
+    <div class="field">
+      <%= f.label "Billing Address" %><br />
+      <%= f.text_area :billing_address, rows: 5 %>
+    </div>
+    <div class="field">
+      <%= f.label "Billing city/town" %><br />
+      <%= f.text_field :billing_city_town %>
+    </div>
+    <div class="field">
+      <%= f.label :terms %><br />
+      <%= f.text_field :terms %>
+    </div>
+    <div class="field">
+      <%= f.label "MSF Charge" %><br />
+      <%= f.text_field :msf_charge %> | <%= f.select :msf_charge_computation, "<option>Flat charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select msf computation" %>
+    </div>
+    <div class="field">
+      <%= f.label :Delivery_charge %><br />
+      <%= f.text_field :delivery_charge %> | <%= f.select :delivery_charge_computation, "<option>Flat Charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select delivery charge computation" %>
+    </div>
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.select :status, "<option>Active</option><option>Inactive</option><option>New</option><option>On hold</option>".html_safe, prompt: "Please select status" %>
+    </div>
+    <div class="field">
+      <%= f.label :order_schedule %><br />
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "M") %> M<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "T") %> T<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "W") %> W<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "Th") %> Th<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "F") %> F<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "Sa") %> Sa<br>
+      <%= check_box_tag("customer_maintenance[order_schedule][]", "Su") %> Su<br>
+    </div>
+    <div class="field">
+      <%= f.label :delivery_group_code %><br />
+      <%= f.select :delivery_group_code, "<option>A1</option><option>B1</option><option>A2</option><option>B2</option><option>C1</option><option>D1</option><option>C2</option><option>D2</option><option>E1</option><option>E2</option><option>OTH</option>".html_safe, prompt: "Please select delivery group code" %>
+    </div>
+    <div class="field">
+      <%= f.label :production_group_code %><br />
+      <%= f.text_field :production_group_code %>
+    </div>
+    <div class="field">
+      <%= f.label :delivery_notes %><br />
+      <%= f.text_field :delivery_notes %>
+    </div>
+    <div class="field">
+      <%= f.label :additional_notes %><br />
+      <%= f.text_field :additional_notes %>
+    </div>
+    <div class="field">
+      <%= f.label "Assess finance / Late charges" %><br />
+      <%= f.text_field :assess_finance_late_charges %>
+    </div>
+    <div class="field">
+      <%= f.label "Finance / Late Charge" %><br />
+      <%= f.text_field :finance_late_charges %>
+    </div>
+    <div class="field">
+      <%= f.label :credit_limit %><br />
+      <%= f.text_field :credit_limit %>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "Save", class: "btn" %>
+  </div>
+<% end %>

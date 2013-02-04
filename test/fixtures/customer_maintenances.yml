@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_type: MyString
+  customer_name: MyString
+  customer_tax_id: MyString
+  vat_registered: false
+  contact_name: MyString
+  primary_phone: MyString
+  mobile_num: MyString
+  fax_num: MyString
+  email_address: MyString
+  outlet_code: 1
+  outlet_name: MyString
+
+two:
+  customer_type: MyString
+  customer_name: MyString
+  customer_tax_id: MyString
+  vat_registered: false
+  contact_name: MyString
+  primary_phone: MyString
+  mobile_num: MyString
+  fax_num: MyString
+  email_address: MyString
+  outlet_code: 1
+  outlet_name: MyString

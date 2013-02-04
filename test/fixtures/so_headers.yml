@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  outlet_code: 1
+  company_code: MyString
+  outlet_name: MyString
+  customer_name: MyString
+  delivery_group: MyString
+  so_number: 1
+  order_date: 2013-01-19
+  delivery_date: 2013-01-19
+  production_date: 2013-01-19
+  total_order_amount: 9.99
+  vat: 9.99
+  msf_charge: 9.99
+  delivery_charge: 9.99
+  grand_total: 9.99
+  order_status: MyString
+  sales_invoice_num: 1
+  sales_invoice_date: 2013-01-19
+
+two:
+  outlet_code: 1
+  company_code: MyString
+  outlet_name: MyString
+  customer_name: MyString
+  delivery_group: MyString
+  so_number: 1
+  order_date: 2013-01-19
+  delivery_date: 2013-01-19
+  production_date: 2013-01-19
+  total_order_amount: 9.99
+  vat: 9.99
+  msf_charge: 9.99
+  delivery_charge: 9.99
+  grand_total: 9.99
+  order_status: MyString
+  sales_invoice_num: 1
+  sales_invoice_date: 2013-01-19

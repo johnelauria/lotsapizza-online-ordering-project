@@ -1,0 +1,89 @@
+<h1 align="center">Sales Orders</h1>
+
+<div class="form-search">
+<%= search_form_for @q do |f| %>
+    <%= f.text_field :outlet_code_cont, placeholder: "Search Outlet code", class: "input-medium search-query" %>
+    <%= f.submit class: "btn" %>
+<% end %>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#allSales" data-toggle="tab">All Sales Orders</a></li>
+  <li><a href="#pendingSales" data-toggle="tab">Pending Sales Orders</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="allSales">
+<table class="table table-striped">
+  <tr>
+    <th>Outlet code</th>
+    <th>Outlet name</th>
+    <th>Franchise Owner</th>
+    <th>Delivery group</th>
+    <th>So number</th>
+    <th>Order date</th>
+    <th>Grand total</th>
+    <th>Order status</th>
+    <th>Sales invoice num</th>
+    <th>Sales invoice date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @so_header.each do |so_header| %>
+  <tr>
+    <td><%= so_header.outlet_code %></td>
+    <td><%= so_header.outlet_name %></td>
+    <td><%= so_header.customer_name %></td>
+    <td><%= so_header.delivery_group %></td>
+    <td><%= so_header.so_number %></td>
+    <td><%= so_header.order_date %></td>
+    <td><%= sprintf("P%0.02f", so_header.grand_total) %></td>
+    <td><%= so_header.order_status %></td>
+    <td><%= so_header.sales_invoice_num %></td>
+    <td><%= so_header.sales_invoice_date %></td>
+    <td><%= link_to 'Show', so_header, class: "btn btn-mini" %></td>
+    <td><%= link_to 'Update', edit_so_header_path(so_header), class: "btn btn-mini" %></td>
+    <td><%= link_to 'Delete', so_header, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+  <div class="tab-pane" id="pendingSales">
+    <table class="table">
+      <tr>
+        <th>Outlet code</th>
+        <th>Outlet name</th>
+        <th>Franchise Owner</th>
+        <th>Delivery group</th>
+        <th>So number</th>
+        <th>Order date</th>
+        <th>Grand total</th>
+        <th>Order status</th>
+        <th>Sales invoice num</th>
+        <th>Sales invoice date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    <% SoHeader.find_all_by_order_status(nil).reverse.each do |so_header| %>
+        <tr>
+            <td><%= so_header.outlet_code %></td>
+            <td><%= so_header.outlet_name %></td>
+            <td><%= so_header.customer_name %></td>
+            <td><%= so_header.delivery_group %></td>
+            <td><%= so_header.so_number %></td>
+            <td><%= so_header.order_date %></td>
+            <td><%= sprintf("P%0.02f", so_header.grand_total) %></td>
+            <td><%= so_header.order_status %></td>
+            <td><%= so_header.sales_invoice_num %></td>
+            <td><%= so_header.sales_invoice_date %></td>
+            <td><%= link_to 'Show', so_header, class: "btn btn-mini" %></td>
+            <td><%= link_to 'Update', edit_so_header_path(so_header), class: "btn btn-mini" %></td>
+            <td><%= link_to 'Delete', so_header, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+        </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

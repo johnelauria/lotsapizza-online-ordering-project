@@ -1,0 +1,66 @@
+<p>You are ordering for a <%= @product_maintenance.product_description %></p>
+
+<%= render "so_details/form" %>
+
+
+<h3>Details of this product: </h3>
+
+<p>
+  <b>Product code:</b>
+  <%= @product_maintenance.product_code %>
+</p>
+
+<p>
+  <b>Product description:</b>
+  <%= @product_maintenance.product_description %>
+</p>
+
+<p>
+  <b>Po unit:</b>
+  <%= @product_maintenance.po_unit %>
+</p>
+
+<p>
+  <b>Issue unit:</b>
+  <%= @product_maintenance.issue_unit %>
+</p>
+
+<p>
+  <b>Conversion factor:</b>
+  <%= @product_maintenance.conversion_factor %>
+</p>
+
+<% if admin? %>
+<p>
+  <b>Subject to vat:</b>
+  <%= @product_maintenance.subject_to_vat %>
+</p>
+
+<p>
+  <b>Subject to finance late charge:</b>
+  <%= @product_maintenance.subject_to_finance_late_charge %>
+</p>
+
+<p>
+  <b>Eligible for discount:</b>
+  <%= @product_maintenance.eligible_for_discount %>
+</p>
+
+<% end %>
+
+<p>
+  <b>Purchase price:</b>
+  <%= sprintf("P%0.02f", @product_maintenance.purchase_price) %>
+</p>
+
+<p>
+  <b>Selling price:</b>
+  <%= sprintf("P%0.02f", @product_maintenance.selling_price) %>
+</p>
+
+<p>
+  <b>Sort code:</b>
+  <%= @product_maintenance.sort_code %>
+</p>
+
+<%= link_to 'Back', product_maintenances_path %>
