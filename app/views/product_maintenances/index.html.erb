@@ -49,7 +49,7 @@
     <th></th>
   </tr>
 
-<% @product_maintenance.each do |product_maintenance| %>
+<% @product_maintenance.sort_by(&:product_description).each do |product_maintenance| %>
   <tr>
     <td><%= product_maintenance.product_code %></td>
     <td><%= product_maintenance.product_description %></td>

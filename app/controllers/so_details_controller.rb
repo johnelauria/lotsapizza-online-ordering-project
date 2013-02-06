@@ -88,7 +88,7 @@ class SoDetailsController < ApplicationController
     @so_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to product_maintenances_path }
       format.json { head :no_content }
     end
   end
