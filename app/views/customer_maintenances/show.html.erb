@@ -177,7 +177,7 @@
 
 <tr>
   <td><b>Credit Limit:</b> </td>
-  <td><%= sprintf("P%0.02f", @customer_maintenance.credit_limit) %></td>
+  <td><%= sprintf("P%0.02f", @customer_maintenance.credit_limit) unless @customer_maintenance.customer_maintenance.nil? %></td>
 </tr>
 </table>
 
