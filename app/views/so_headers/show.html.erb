@@ -82,7 +82,7 @@
 <p>
   <b>Order status:</b>
   <% if @so_header.order_status.nil? %>
-      Pending...
+      
   <% else %>
     <%= @so_header.order_status %>
   <% end %>
@@ -91,7 +91,7 @@
 <p>
   <b>Sales invoice num:</b>
   <% if @so_header.sales_invoice_num.nil? %>
-      Pending...
+      
   <% else %>
       <%= @so_header.sales_invoice_num %>
   <% end %>
@@ -100,7 +100,7 @@
 <p>
   <b>Sales invoice date:</b>
   <% if @so_header.sales_invoice_date.nil? %>
-      Pending...
+      
   <% else %>
       <%= @so_header.sales_invoice_date %>
   <% end %>

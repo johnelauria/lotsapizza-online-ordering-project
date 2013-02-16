@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204133858) do
+ActiveRecord::Schema.define(:version => 20130216113934) do
 
   create_table "admins", :force => true do |t|
     t.string "name"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20130204133858) do
     t.string   "status"
     t.string   "order_schedule"
     t.string   "delivery_group_code"
-    t.string   "delivery_notes"
     t.boolean  "assess_finance_late_charges"
     t.integer  "finance_late_charges"
     t.integer  "credit_limit"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130204133858) do
     t.decimal  "msf_charge",                  :default => 0.0, :null => false
     t.decimal  "delivery_charge",             :default => 0.0, :null => false
     t.string   "outlet_code"
+    t.text     "delivery_notes"
   end
 
   create_table "product_maintenances", :force => true do |t|

@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= f.label :product_code %><br />
-    <%= f.text_field :product_code, placeholder: "3-Digit Alpha Numeric" %>
+    <%= f.text_field :product_code, class: "input-mini" %> <span class="label label-info">3-digit alpha numeric</span>
   </div>
   <div class="field">
-    <%= f.label :product_description %><br />
+    <%= f.label :product_name %><br />
     <%= f.text_area :product_description, rows: 5 %>
   </div>
   <div class="field">
@@ -28,39 +28,35 @@
   </div>
   <div class="field">
     <%= f.label :Quantity_on_hand %><br />
-    <%= f.text_field :on_hand %>
+    <%= f.text_field :on_hand, class: "input-mini" %>
   </div>
   <div class="field">
     <%= f.label :issue_unit %><br />
     <%= f.select :issue_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
   </div>
   <div class="field">
-    <%= f.label :subject_to_vat %><br />
-    <%= f.check_box :subject_to_vat %>
+    Subject to vat <%= f.check_box :subject_to_vat %>
   </div>
   <div class="field">
-    <%= f.label :subject_to_finance_late_charge %><br />
-    <%= f.check_box :subject_to_finance_late_charge %>
+    Subject to finance / late charge <%= f.check_box :subject_to_finance_late_charge %>
   </div>
   <div class="field">
-    <%= f.label :eligible_for_discount %><br />
-    <%= f.check_box :eligible_for_discount %>
+    Eligible for discount <%= f.check_box :eligible_for_discount %>
   </div>
   <div class="field">
     <%= f.label :purchase_price %><br />
-    <%= f.text_field :purchase_price %>
+    <%= f.text_field :purchase_price, value: sprintf("%0.02f", 0), class: "input-mini" %>
   </div>
   <div class="field">
     <%= f.label :selling_price %><br />
-    <%= f.text_field :selling_price %>
+    <%= f.text_field :selling_price, value: sprintf("%0.02f", 0), class: "input-mini" %>
   </div>
   <div class="field">
-    <%= f.label :raw_materials %><br />
-    <%= f.check_box :raw_materials %>
+    Raw_materials <%= f.check_box :raw_materials %>
   </div>
   <div class="field">
     <%= f.label :sort_code %><br />
-    <%= f.text_field :sort_code %>
+    <%= f.text_field :sort_code, class: "input-mini" %>
   </div>
   <div class="actions">
     <%= f.submit "Save", class: "btn" %>

@@ -50,7 +50,7 @@
         <% end %>
   <div class="field">
     <%= f.label :order_status %><br />
-    <%= f.select :order_status, "<option>open</option><option>void</option><option>invoiced".html_safe, prompt: "please select order status" %>
+    <%= f.select :order_status, "<option>Invoiced</option><option>Void</option>".html_safe, prompt: "please select order status" %>
   </div>
   <div class="field">
     <%= f.label :sales_invoice_num %><br />

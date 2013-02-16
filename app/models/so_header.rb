@@ -16,7 +16,11 @@ class SoHeader < ActiveRecord::Base
   end
 
   def grand_total
-    self.total_order_amount + self.vat + self.msf_charge + self.delivery_charge
+    unless self.total_order_amount == 0
+      self.total_order_amount + self.vat + self.msf_charge + self.delivery_charge
+    else
+      0
+    end
   end
 
   def msf_charge

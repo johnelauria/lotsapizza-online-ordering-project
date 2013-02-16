@@ -1,8 +1,11 @@
 <h1>Products Available</h1>
+<% if admin? %>
+<%= link_to 'Create New Product', new_product_maintenance_path, class: "btn btn-primary", style: "float:right;" %>
+<% end %>
 <div class="accordion" id="finder">
   <div class="accordion-group">
     <div class="accordion-header">
-      <a href="#productDescription" class="accordion-toggle" data-toggle="collapse" data-parent="finder">Search by Product Description</a>
+      <a href="#productDescription" class="accordion-toggle" data-toggle="collapse" data-parent="finder">Search by Product Name</a>
     </div>
     <div class="accordion-body collapse" id="productDescription">
       <div class="accordion-inner">
@@ -26,19 +29,20 @@
 </div>
 </div>
 </div>
+
 <% unless admin? %>
 <a href="#totalOrders" class="btn" data-toggle="modal"><%= pluralize(current_user.so_headers.find(current_user.so_headers.last.id).so_details.count, "Order") %> in your cart</a>
 <% end %>
 <table class="table table-striped">
   <tr>
     <th>Product code</th>
-    <th>Product description</th>
+    <th>Product name</th>
     <th>Category</th>
     <th>Quantity on hand</th>
     <th>Po unit</th>
     <% if admin? %>
     <th>Subject to vat</th>
-    <th>Subject to finance / late charge</th>
+    <th>Subject to finance</th>
     <th>Eligible for discount</th>
     <% end %>
     <th>Issue unit</th>
@@ -89,14 +93,14 @@
 
     <td><%= f.number_field :quantity, placeholder: "Quantity", class: "input-mini" %>
 
-    <%= f.submit "Submit Order", class: "btn btn-mini" %></td>
+    <%= f.submit "Add to cart", class: "btn btn-mini" %></td>
 
 <% end %>
 
     <% end %>
     <% if admin? %>
     <td><%= link_to 'Update', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <td><%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure you want to delete this product?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
   </tr>
   <% end %>
@@ -104,9 +108,6 @@
 
 <br />
 
-<% if admin? %>
-<%= link_to 'Create New Product', new_product_maintenance_path, class: "btn" %>
-<% end %>
 <% unless admin? %>
 <% unless current_user.so_headers.last.nil? %>
 <% if signed_in? %>
@@ -119,7 +120,7 @@
 <table class="table">
       <tr>
         <th>Product name</th>
-        <th>Unit_price</th>
+        <th>Unit price</th>
         <th>Quantity</th>
         <th>Amount</th>
         <th></th>
@@ -131,9 +132,42 @@
           <td><%= sprintf("P%0.02f", detail.unit_price) %></td>
           <td><%= detail.quantity %></td>
           <td><%= sprintf("P%0.02f", detail.amount) %></td>
-          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status.nil? %></td>
+          <td><%= link_to "Cancel order", detail, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: "You can still cancel this order at this moment. Do you wish to continue?" } if detail.so_header.order_status == "Open" %></td>
         </tr>
       <% end %>
+        <tr>
+          <td><strong>Total:</strong></td>
+          <td></td><td></td>
+          <td><%= sprintf("P%0.02f", current_user.so_headers.last.total_order_amount) %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Additional charges:</strong></td>
+          <td></td>
+          <td>MSF charge: </td>
+          <td><%= sprintf("P%0.02f", current_user.msf_charge) %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Delivery Charge: </td>
+          <td><%= sprintf("P%0.02f", current_user.delivery_charge) %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>VAT: </td>
+          <td><%= sprintf("P%0.02f", current_user.so_headers.last.vat) %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Grand Total:</strong></td>
+          <td></td><td></td>
+          <td><%= sprintf("P%0.02f", current_user.so_headers.last.grand_total) %></td>
+          <td></td>
+        </tr>
 
 </table>
 </div>

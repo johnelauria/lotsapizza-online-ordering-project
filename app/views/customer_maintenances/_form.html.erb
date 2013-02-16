@@ -23,7 +23,7 @@
     <%= f.text_field :customer_tax_id, placeholder: "XXX-XXX-XXX-XXX format" %>
   </div>
   <div class="field">
-    <%= f.label :vat_registered %><br />
+    Vat Registered 
     <%= f.check_box :vat_registered %>
   </div>
   <div class="field">
@@ -49,7 +49,7 @@
     <% if @customer_maintenance.outlet_code.nil? %>
     <div class="field">
       <%= f.label :outlet_code %>
-      <%= f.text_field :outlet_code, placeholder: "Enter 3 digit code" %> <small><span class="label label-important">No editing after save</span></small>
+      <%= f.text_field :outlet_code, placeholder: "3 digit code", class: "input-mini" %> <small><span class="label label-important">No editing after save</span></small>
     </div>
     <% end %>
     <div class="field">
@@ -90,11 +90,11 @@
     </div>
     <div class="field">
       <%= f.label "MSF Charge" %><br />
-      <%= f.text_field :msf_charge %> | <%= f.select :msf_charge_computation, "<option>Flat charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select msf computation" %>
+      <%= f.text_field :msf_charge, value: sprintf("%0.02f", 0), class: "input-mini" %> | <%= f.select :msf_charge_computation, "<option>Flat charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select msf computation" %>
     </div>
     <div class="field">
       <%= f.label :Delivery_charge %><br />
-      <%= f.text_field :delivery_charge %> | <%= f.select :delivery_charge_computation, "<option>Flat Charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select delivery charge computation" %>
+      <%= f.text_field :delivery_charge, value: sprintf("%0.02f", 0), class: "input-mini" %> | <%= f.select :delivery_charge_computation, "<option>Flat Charge</option><option>Percentage of total order</option>".html_safe, prompt: "Please select delivery charge computation" %>
     </div>
     <div class="field">
       <%= f.label :status %><br />
@@ -102,13 +102,21 @@
     </div>
     <div class="field">
       <%= f.label :order_schedule %><br />
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "M") %> M<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "T") %> T<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "W") %> W<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "Th") %> Th<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "F") %> F<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "Sa") %> Sa<br>
-      <%= check_box_tag("customer_maintenance[order_schedule][]", "Su") %> Su<br>
+      <div class="row">
+        <div class="span1">
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "M") %> M<br>
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "T") %> T<br>
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "W") %> W<br>
+        </div>
+        <div class="span1">
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "Th") %> Th<br>
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "F") %> F<br>
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "Sa") %> Sa<br>
+        </div>
+        <div class="span1">
+          <%= check_box_tag("customer_maintenance[order_schedule][]", "Su") %> Su<br>
+        </div>
+      </div>
     </div>
     <div class="field">
       <%= f.label :delivery_group_code %><br />
@@ -116,27 +124,27 @@
     </div>
     <div class="field">
       <%= f.label :production_group_code %><br />
-      <%= f.text_field :production_group_code %>
+      <%= f.text_field :production_group_code, class: "input-mini" %>
     </div>
     <div class="field">
       <%= f.label :delivery_notes %><br />
-      <%= f.text_field :delivery_notes %>
+      <%= f.text_area :delivery_notes, rows: 5 %>
     </div>
     <div class="field">
       <%= f.label :additional_notes %><br />
-      <%= f.text_field :additional_notes %>
+      <%= f.text_area :additional_notes, rows: 5 %>
     </div>
     <div class="field">
       <%= f.label "Assess finance / Late charges" %><br />
-      <%= f.text_field :assess_finance_late_charges %>
+      <%= f.text_field :assess_finance_late_charges, class: "input-mini" %>
     </div>
     <div class="field">
       <%= f.label "Finance / Late Charge" %><br />
-      <%= f.text_field :finance_late_charges %>
+      <%= f.text_field :finance_late_charges, class: "input-mini" %>
     </div>
     <div class="field">
       <%= f.label :credit_limit %><br />
-      <%= f.text_field :credit_limit %>
+      <%= f.text_field :credit_limit, class: "input-mini" %>
     </div>
 
     <div class="actions">

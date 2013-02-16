@@ -50,7 +50,7 @@ class CustomerMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @customer_maintenance.save
-        format.html { redirect_to @customer_maintenance, notice: 'Customer maintenance was successfully created.' }
+        format.html { redirect_to @customer_maintenance, notice: 'Customer successfully added!' }
         format.json { render json: @customer_maintenance, status: :created, location: @customer_maintenance }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class CustomerMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @customer_maintenance.update_attributes(params[:customer_maintenance])
-        format.html { redirect_to @customer_maintenance, notice: 'Customer maintenance was successfully updated.' }
+        format.html { redirect_to @customer_maintenance, notice: 'Customer successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

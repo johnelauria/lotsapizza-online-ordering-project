@@ -20,7 +20,8 @@ class ProductMaintenancesController < ApplicationController
                 delivery_group: current_user.delivery_group_code,
                 order_date: Date.today,
                 delivery_date: Date.tomorrow,
-                production_date: Date.today
+                production_date: Date.today,
+                order_status: "Open"
             )
           end
 
@@ -34,11 +35,12 @@ class ProductMaintenancesController < ApplicationController
                 delivery_group: current_user.delivery_group_code,
                 order_date: Date.today,
                 delivery_date: Date.tomorrow,
-                production_date: Date.today
+                production_date: Date.today,
+                order_status: "Open"
             )
           end
 
-          unless current_user.so_headers.last.order_status.nil?
+          unless current_user.so_headers.last.order_status == "Open"
             SoHeader.create(
                 customer_maintenance_id: current_user.id,
                 outlet_code: current_user.outlet_code,
@@ -48,7 +50,8 @@ class ProductMaintenancesController < ApplicationController
                 delivery_group: current_user.delivery_group_code,
                 order_date: Date.today,
                 delivery_date: Date.tomorrow,
-                production_date: Date.today
+                production_date: Date.today,
+                order_status: "Open"
             )
           end
     end
@@ -94,7 +97,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.save
-        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully created.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product successfully added!' }
         format.json { render json: @product_maintenance, status: :created, location: @product_maintenance }
       else
         format.html { render action: "new" }
@@ -110,7 +113,7 @@ class ProductMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @product_maintenance.update_attributes(params[:product_maintenance])
-        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully updated.' }
+        format.html { redirect_to product_maintenances_path, notice: 'Product maintenance was successfully updated!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
