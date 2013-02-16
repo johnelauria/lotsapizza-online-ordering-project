@@ -172,7 +172,7 @@
 
 <tr>
   <td><b>Finance / Late Charge:</b> </td>
-  <td><%= sprintf("P%0.02f", @customer_maintenance.finance_late_charges) %></td>
+  <td><%= sprintf("P%0.02f", @customer_maintenance.finance_late_charges) unless @customer_maintenance.finance_late_charges.nil? %></td>
 </tr>
 
 <tr>
