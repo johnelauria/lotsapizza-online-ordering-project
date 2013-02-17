@@ -44,6 +44,20 @@ module SessionsHelper
 
   #Filters / Restrictions
 
+  def sign_in_first_admin
+    if !admin?
+      flash[:notice] = "Please sign in first"
+      redirect_to root_path
+    end
+  end
+
+  def sign_in_first
+    unless signed_in? || admin?
+      flash[:notice] = "Please sign in first"
+      redirect_to root_path
+    end
+  end
+
   def restrict_customer_access
     if signed_in?
       flash[:error] = "Sorry, the page requested is restricted for your account. Only Administrators have access to that page"

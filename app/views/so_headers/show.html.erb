@@ -105,6 +105,8 @@
       <%= @so_header.sales_invoice_date %>
   <% end %>
 </p>
+<%= link_to 'Update', edit_so_header_path(@so_header), class: "btn btn-mini btn-primary" %> |
+<%= link_to 'Back', so_headers_path, class: "btn btn-mini btn-danger" %>
     </div>
   <div class="span9">
     <%= render 'orders' %>
@@ -112,149 +114,148 @@
   </div>
   </div>
   <div id="customerDetails" class="tab-pane">
-    <p>
-      <b>Customer type:</b>
-      <%= @so_header.customer_maintenance.customer_type %>
-    </p>
+    <table class="table">
+    <tr>
+      <td><b>Customer type:</b></td>
+      <td><%= @so_header.customer_maintenance.customer_type %></td>
+    </tr>
 
-    <p>
-      <b>Customer name:</b>
-      <%= @so_header.customer_maintenance.customer_name %>
-    </p>
+<tr>
+  <td><b>Customer name:</b></td>
+  <td><%= @so_header.customer_maintenance.customer_name %></td>
+</tr>
 
-    <p>
-      <b>Customer tax:</b>
-      <%= @so_header.customer_maintenance.customer_tax_id %>
-    </p>
+<tr>
+  <td><b>Customer tax:</b></td>
+  <td><%= @so_header.customer_maintenance.customer_tax_id %></td>
+</tr>
 
-    <p>
-      <b>Vat registered:</b>
-      <%= @so_header.customer_maintenance.vat_registered %>
-    </p>
+<tr>
+  <td><b>Vat registered:</b></td>
+  <td><%= @so_header.customer_maintenance.vat_registered ? 'yes' : 'no' %></td>
+</tr>
 
-    <p>
-      <b>Contact name:</b>
-      <%= @so_header.customer_maintenance.contact_name %>
-    </p>
+<tr>
+  <td><b>Contact name:</b></td>
+  <td><%= @so_header.customer_maintenance.contact_name %></td>
+</tr>
 
-    <p>
-      <b>Primary phone:</b>
-      <%= @so_header.customer_maintenance.primary_phone %>
-    </p>
+<tr>
+  <td><b>Primary phone:</b></td>
+  <td><%= @so_header.customer_maintenance.primary_phone %></td>
+</tr>
 
-    <p>
-      <b>Mobile num:</b>
-      <%= @so_header.customer_maintenance.mobile_num %>
-    </p>
+<tr>
+  <td><b>Mobile num:</b></td>
+  <td><%= @so_header.customer_maintenance.mobile_num %></td>
+</tr>
 
-    <p>
-      <b>Fax num:</b>
-      <%= @so_header.customer_maintenance.fax_num %>
-    </p>
+<tr>
+  <td><b>Fax num:</b></td>
+  <td><%= @so_header.customer_maintenance.fax_num %></td>
+</tr>
 
-    <p>
-      <b>Email address:</b>
-      <%= @so_header.customer_maintenance.email_address %>
-    </p>
+<tr>
+  <td><b>Email address:</b></td>
+  <td><%= @so_header.customer_maintenance.email_address %></td>
+</tr>
 
-    <p>
-      <b>Outlet code:</b>
-      <%= "%03d" % @so_header.customer_maintenance.id %>
-    </p>
+<tr>
+  <td><b>Outlet code:</b></td>
+  <td><%= "%03d" % @so_header.customer_maintenance.id %></td>
+</tr>
 
-    <p>
-      <b>Outlet name: </b>
-      <%= @so_header.customer_maintenance.outlet_name %>
-    </p>
+<tr>
+  <td><b>Outlet name: </b></td>
+  <td><%= @so_header.customer_maintenance.outlet_name %></td>
+</tr>
 
-    <p>
-      <b>Outlet Address: </b>
-      <%= @so_header.customer_maintenance.outlet_address %>
-    </p>
+<tr>
+  <td><b>Outlet Address:</b> </td>
+  <td><%= @so_header.customer_maintenance.outlet_address %></td>
+</tr>
 
-    <p>
-      <b>Outlet City / Town: </b>
-      <%= @so_header.customer_maintenance.outlet_city %>
-    </p>
+<tr>
+  <td><b>Outlet City / Town:</b> </td>
+  <td><%= @so_header.customer_maintenance.outlet_city %></td>
+</tr>
 
-    <p>
-      <b>Outlet / Billing flag: </b>
-      <%= @so_header.customer_maintenance.outlet_billing_flag %>
-    </p>
+<tr>
+  <td><b>Outlet / Billing flag:</b> </td>
+  <td><%= @so_header.customer_maintenance.outlet_billing_flag %></td>
+</tr>
 
-    <p>
-      <b>Billing Address: </b>
-      <%= @so_header.customer_maintenance.billing_address %>
-    </p>
+<tr>
+  <td><b>Billing Address:</b> </td>
+  <td><%= @so_header.customer_maintenance.billing_address %></td>
+</tr>
 
-    <p>
-      <b>Billing City / Town: </b>
-      <%= @so_header.customer_maintenance.billing_city_town %>
-    </p>
+<tr>
+  <td><b>Billing City / Town:</b> </td>
+  <td><%= @so_header.customer_maintenance.billing_city_town %></td>
+</tr>
 
-    <p>
-      <b>Terms: </b>
-      <%= @so_header.customer_maintenance.terms %>
-    </p>
+<tr>
+  <td><b>Terms: </b></td>
+  <td><%= @so_header.customer_maintenance.terms %></td>
+</tr>
 
-    <p>
-      <b>MSF Charge: </b>
-      <%= @so_header.customer_maintenance.msf_charge %> computed by <%= @so_header.customer_maintenance.msf_charge_computation %>
-    </p>
+<tr>
+  <td><b>MSF Charge:</b> </td>
+  <td><%= sprintf("P%0.02f", @so_header.customer_maintenance.msf_charge) %> computed by <%= @so_header.customer_maintenance.msf_charge_computation %></td>
+</tr>
 
-    <p>
-      <b>Delivery Charge: </b>
-      <%= @so_header.customer_maintenance.delivery_charge %> computed by <%= @so_header.customer_maintenance.delivery_charge_computation %>
-    </p>
+<tr>
+  <td><b>Delivery Charge:</b> </td>
+  <td><%= sprintf("P%0.02f", @so_header.customer_maintenance.delivery_charge) %> computed by <%= @so_header.customer_maintenance.delivery_charge_computation %></td>
+</tr>
 
-    <p>
-      <b>Status: </b>
-      <%= @so_header.customer_maintenance.status %>
-    </p>
+<tr>
+  <td><b>Status:</b> </td>
+  <td><%= @so_header.customer_maintenance.status %></td>
+</tr>
 
-    <p>
-      <b>Order Schedule: </b>
-      <%= @so_header.customer_maintenance.order_schedule %>
-    </p>
+<tr>
+  <td><b>Order Schedule:</b> </td>
+  <td><%= @so_header.customer_maintenance.order_schedule %></td>
+</tr>
 
-    <p>
-      <b>Delivery Group Code: </b>
-      <%= @so_header.customer_maintenance.delivery_group_code %>
-    </p>
+<tr>
+  <td><b>Delivery Group Code:</b> </td>
+ <td> <%= @so_header.customer_maintenance.delivery_group_code %></td>
+</tr>
 
-    <p>
-      <b>Production Group Code: </b>
-      <%= @so_header.customer_maintenance.production_group_code %>
-    </p>
+<tr>
+  <td><b>Production Group Code:</b> </td>
+  <td><%= @so_header.customer_maintenance.production_group_code %></td>
+</tr>
 
-    <p>
-      <b>Delivery Notes: </b>
-      <%= @so_header.customer_maintenance.delivery_notes %>
-    </p>
+<tr>
+  <td><b>Delivery Notes:</b> </td>
+  <td><%= @so_header.customer_maintenance.delivery_notes %></td>
+</tr>
 
-    <p>
-      <b>Additional Notes: </b>
-      <%= @so_header.customer_maintenance.additional_notes %>
-    </p>
+<tr>
+  <td><b>Additional Notes:</b> </td>
+  <td><%= @so_header.customer_maintenance.additional_notes %></td>
+</tr>
 
-    <p>
-      <b>Assess Finance / Late Charges: </b>
-      <%= @so_header.customer_maintenance.assess_finance_late_charges %>
-    </p>
+<tr>
+  <td><b>Assess Finance / Late Charges:</b> </td>
+  <td><%= @so_header.customer_maintenance.assess_finance_late_charges %></td>
+</tr>
 
-    <p>
-      <b>Finance / Late Charge: </b>
-      <%= @so_header.customer_maintenance.finance_late_charges %>
-    </p>
+<tr>
+  <td><b>Finance / Late Charge:</b> </td>
+  <td><%= sprintf("P%0.02f", @so_header.customer_maintenance.finance_late_charges) unless @so_header.customer_maintenance.finance_late_charges.nil? %></td>
+</tr>
 
-    <p>
-      <b>Credit Limit: </b>
-      <%= @so_header.customer_maintenance.credit_limit %>
-    </p>
+<tr>
+  <td><b>Credit Limit:</b> </td>
+  <td><%= sprintf("P%0.02f", @so_header.customer_maintenance.credit_limit) unless @so_header.customer_maintenance.credit_limit.nil? %></td>
+</tr>
+</table>
 
   </div>
   </div>
-
-<%= link_to 'Update', edit_so_header_path(@so_header), class: "btn btn-mini btn-primary" %> |
-<%= link_to 'Back', so_headers_path, class: "btn btn-mini btn-danger" %>
  <br>

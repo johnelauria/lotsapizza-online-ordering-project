@@ -2,6 +2,7 @@ class SoHeadersController < ApplicationController
   # GET /so_headers
   # GET /so_headers.json
 
+  before_filter :sign_in_first
   before_filter :restrict_customer_access, only: [:index]
 
   def printable

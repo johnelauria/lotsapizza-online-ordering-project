@@ -55,10 +55,6 @@
         <% end %>
   </div>
 </div>
-<div class="navbar navbar-fixed-bottom">
-  <div class="navbar-inner">
-  </div>
-</div>
 <br><br><br>
 <div class="container">
   <% flash.each do |key, value| %>
@@ -71,7 +67,7 @@
 </div>
 
 <div id="adminModal" class="modal hide fade">
-  <div class="modal-header" style="background-color: black; color: white;">
+  <div class="modal-header" style="background-color: red; color: yellow;">
     <a class="close" data-dismiss="modal" style="color: #f5f5f5;">X</a>
     <h3>Admin Access</h3>
   </div>
@@ -82,7 +78,7 @@
 
         <%= f.label :password %>
         <%= f.password_field :password %><br>
-        <%= f.submit "Sign in", class: "btn btn-inverse" %>
+        <%= f.submit "Sign in", class: "myButton" %>
     <% end %>
   </div>
   <div class="modal-footer">

@@ -1,6 +1,8 @@
 class SystemTablesController < ApplicationController
   # GET /system_tables
   # GET /system_tables.json
+
+  before_filter :sign_in_first
   def index
     @system_tables = SystemTable.all
 

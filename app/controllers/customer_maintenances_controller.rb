@@ -2,6 +2,7 @@ class CustomerMaintenancesController < ApplicationController
   # GET /customer_maintenances
   # GET /customer_maintenances.json
 
+  before_filter :sign_in_first
   before_filter :restrict_customer_access, only: [:index, :create, :new]
   before_filter :correct_user?, only: [:edit, :update]
 

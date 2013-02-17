@@ -28,7 +28,6 @@
     <th>Sales invoice date</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @so_header.each do |so_header| %>
@@ -45,7 +44,6 @@
     <td><%= so_header.sales_invoice_date %></td>
     <td><%= link_to 'Show', so_header, class: "btn btn-mini" %></td>
     <td><%= link_to 'Update', edit_so_header_path(so_header), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Delete', so_header, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

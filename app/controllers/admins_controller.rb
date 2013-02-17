@@ -1,6 +1,10 @@
 class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
+
+  before_filter :sign_in_first_admin
+
+
   def index
     @admins = Admin.all
 
@@ -73,11 +77,16 @@ class AdminsController < ApplicationController
   # DELETE /admins/1.json
   def destroy
     @admin = Admin.find(params[:id])
-    @admin.destroy
+    if Admin.all.count == 1
+      flash[:error] = "You cannot delete this admin account! This is the last admin account saved in the database. Deleting this account will prevent all admin users from managing this web system. Please create another admin account before deleting this account!"
+      redirect_to root_path
+    else
+      @admin.destroy
 
-    respond_to do |format|
-      format.html { redirect_to admins_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to admins_url }
+        format.json { head :no_content }
+      end
     end
   end
 end

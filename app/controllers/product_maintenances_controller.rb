@@ -2,6 +2,7 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances
   # GET /product_maintenances.json
 
+  before_filter :sign_in_first
   before_filter :restrict_customer_access, only: [:create, :new, :edit, :update, :destroy]
 
   def index

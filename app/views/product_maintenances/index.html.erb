@@ -1,6 +1,6 @@
 <h1>Products Available</h1>
 <% if admin? %>
-<%= link_to 'Create New Product', new_product_maintenance_path, class: "btn btn-primary", style: "float:right;" %>
+<%= link_to 'Create New Product', new_product_maintenance_path, class: "myButton btn-mini", style: "float:right;" %>
 <% end %>
 <div class="accordion" id="finder">
   <div class="accordion-group">
@@ -48,8 +48,6 @@
     <th>Issue unit</th>
     <th>Purchase price</th>
     <th>Selling price</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -99,8 +97,12 @@
 
     <% end %>
     <% if admin? %>
-    <td><%= link_to 'Update', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure you want to delete this product?' }, class: "btn btn-mini btn-danger" %></td>
+    <div class="btn-group">
+    <td>
+      <%= link_to 'Update', edit_product_maintenance_path(product_maintenance), class: "btn btn-mini" %> 
+      <%= link_to 'Delete', product_maintenance, method: :delete, data: { confirm: 'Are you sure you want to delete this product?' }, class: "btn btn-mini btn-danger" %>
+    </td>
+    </div>
     <% end %>
   </tr>
   <% end %>
