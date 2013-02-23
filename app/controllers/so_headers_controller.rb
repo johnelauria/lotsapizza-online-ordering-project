@@ -10,9 +10,9 @@ class SoHeadersController < ApplicationController
   end
 
   def index
-    @so_headers = SoHeader.all
+    @so_headers = SoHeader.paginate(page: params[:page], order: "created_at DESC")
     @q = SoHeader.search(params[:q])
-    @so_header = @q.result(distinct: true).reverse
+    @so_header = @q.result.paginate(page: params[:page], order: "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

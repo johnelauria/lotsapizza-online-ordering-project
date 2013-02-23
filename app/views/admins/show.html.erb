@@ -8,5 +8,5 @@
   <%= @admin.username %>
 </p>
 
-<p>We currently have <%= link_to pluralize(SoHeader.find_all_by_order_status(nil).count, "pending order"), so_headers_path %> from the franchisees.
+<p>We currently have <%= link_to pluralize(SoHeader.find_all_by_order_status("Open").count, "pending order"), so_headers_path %> from the franchisees.
   Please process their orders as soon as possible. </p>

@@ -14,6 +14,7 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="allSales">
+    <%= will_paginate %>
 <table class="table table-striped">
   <tr>
     <th>Outlet code</th>
@@ -31,6 +32,7 @@
   </tr>
 
 <% @so_header.each do |so_header| %>
+    <%= will_paginate %>
   <tr>
     <td><%= so_header.outlet_code %></td>
     <td><%= so_header.outlet_name %></td>
@@ -47,6 +49,7 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate %>
 </div>
   <div class="tab-pane" id="pendingSales">
     <table class="table">
@@ -65,7 +68,7 @@
         <th></th>
         <th></th>
       </tr>
-    <% SoHeader.find_all_by_order_status("Open").reverse.each do |so_header| %>
+    <% SoHeader.find_all_by_order_status("Open").sort_by(&:created_at).reverse.each do |so_header| %>
         <tr>
             <td><%= so_header.outlet_code %></td>
             <td><%= so_header.outlet_name %></td>
