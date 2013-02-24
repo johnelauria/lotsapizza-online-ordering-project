@@ -1,5 +1,9 @@
+
 <h1>Sales Order Details: </h1>
-<%= link_to "Print", home_printable_path, class: "btn" if signed_in? %>
+<div class="myButton">
+<%= link_to "Print", action: "show", id: @so_header.id, format: "pdf" %>
+</div>
+<span class="label label-warning"><-You may save a copy of this file by right clicking on this button and click "Save link as"</span>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#salesOrder" data-toggle="tab">Sales Order Details</a></li>
   <li><a href="#customerDetails" data-toggle="tab">Customer Details</a></li>
@@ -105,7 +109,7 @@
       <%= @so_header.sales_invoice_date %>
   <% end %>
 </p>
-<%= link_to 'Update |', edit_so_header_path(@so_header), class: "btn btn-mini btn-primary" if admin? %>
+<%= link_to 'Update', edit_so_header_path(@so_header), class: "btn btn-mini btn-primary" if admin? %>
 <%= link_to 'Back', so_headers_path, class: "btn btn-mini btn-danger" %>
     </div>
   <div class="span9">
