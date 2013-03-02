@@ -55,7 +55,8 @@ class SoDetailsController < ApplicationController
           format.html { redirect_to product_maintenances_path, notice: 'Product was successfully added to your orders list' }
           format.json { render json: @so_detail, status: :created, location: @so_detail }
         else
-          format.html { render action: "new" }
+          flash[:error] = "The value you just entered is invalid and therefore rejected! Please enter a positive number to order a product"
+          format.html { redirect_to :back }
           format.json { render json: @so_detail.errors, status: :unprocessable_entity }
         end
       end

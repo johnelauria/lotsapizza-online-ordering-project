@@ -4,7 +4,7 @@ class SoDetail < ActiveRecord::Base
 
   QTY_REGEX = /[\d]/
 
-  validates :qty, format: { with: QTY_REGEX }, numericality: { greater_than_or_equal_to: 0 }
+  validates :quantity, numericality: { greater_than_or_equal_to: 0 }, format: { with: QTY_REGEX }
 
   before_save :calculate_total_amount
 
