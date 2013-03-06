@@ -27,6 +27,10 @@ class ProductMaintenancesController < ApplicationController
           end
 
           if current_user.so_headers.last.order_date != Date.today
+            if current_user.so_headers.last.so_details.count == 0
+              current_user.so_headers.last.delete
+            end
+
             SoHeader.create(
                 customer_maintenance_id: current_user.id,
                 outlet_code: current_user.outlet_code,

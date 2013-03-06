@@ -14,7 +14,7 @@ end
 
 @so_header.so_details.each do |detail|
 pdf.table [
-	["#{ProductMaintenance.find_by_product_code(detail.product_code).product_description}", "#{detail.id}", "#{sprintf('P%0.02f', detail.unit_price)}", "#{sprintf('P%0.02f', detail.amount)}"], 
+	["#{ProductMaintenance.find_by_product_code(detail.product_code).product_description}", "#{sprintf("P%0.02f", detail.unit_price)}", "#{detail.quantity}", "#{sprintf('P%0.02f', detail.amount)}"], 
 ], column_widths: [200, 100, 100, 100], row_colors: ["FFFFFF", "E5ECF9"] do
   columns(0).align = :left
   columns(1..2).align = :right

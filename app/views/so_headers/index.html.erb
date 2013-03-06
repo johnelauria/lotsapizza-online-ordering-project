@@ -33,6 +33,7 @@
 
 <% @so_header.each do |so_header| %>
     <%= will_paginate %>
+    <% if so_header.grand_total != 0 %>
   <tr>
     <td><%= so_header.outlet_code %></td>
     <td><%= so_header.outlet_name %></td>
@@ -46,6 +47,7 @@
     <td><%= so_header.sales_invoice_date %></td>
     <td><%= link_to 'Show', so_header, class: "btn btn-mini" %></td>
     <td><%= link_to 'Update', edit_so_header_path(so_header), class: "btn btn-mini" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -69,6 +71,7 @@
         <th></th>
       </tr>
     <% SoHeader.find_all_by_order_status("Open").sort_by(&:created_at).reverse.each do |so_header| %>
+        <% unless so_header.grand_total == 0 %>
         <tr>
             <td><%= so_header.outlet_code %></td>
             <td><%= so_header.outlet_name %></td>
@@ -83,6 +86,7 @@
             <td><%= link_to 'Show', so_header, class: "btn btn-mini" %></td>
             <td><%= link_to 'Update', edit_so_header_path(so_header), class: "btn btn-mini" %></td>
         </tr>
+        <% end %>
     <% end %>
     </table>
   </div>
