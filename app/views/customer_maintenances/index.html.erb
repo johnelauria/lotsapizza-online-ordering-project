@@ -2,7 +2,7 @@
 
 <br />
 
-<%= link_to "Create New Customer", new_customer_maintenance_path , class: "myButton", style: "float:right;" %>
+<%= link_to "Create New Franchisee", new_customer_maintenance_path , class: "myButton", style: "float:right;" %>
 <div class="accordion" id="searchField">
     <div class="accordion-group">
         <div class="accordion-header">
@@ -11,17 +11,17 @@
         <div id="customerType" class="accordion-body collapse">
             <div class="accordion-inner">
                 <%= search_form_for @q do |f| %>
-                 <%= f.select :customer_type_cont, "<option>Company-Owned</option><option>Franchised</option><option>MetroPizza</option><option>Events</option><option>Others</option".html_safe, prompt: "Select Customer type", class: "input-medium search-query" %>
+                 <%= f.select :customer_type_cont, "<option>Company-Owned</option><option>Franchised</option><option>MetroPizza</option><option>Events</option><option>Others</option".html_safe, prompt: "Select franchisee type", class: "input-medium search-query" %>
                      <%= f.submit "Search", class: "btn" %>
                     <% end %>
             </div>
         </div>
             <div class="accordion-header">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="searchField" href="#customerName">Search by Customer Name</a>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="searchField" href="#customerName">Search by Franchisee's Name</a>
             <div id="customerName" class="accordion-body collapse">
                 <div class="accordion-inner">
                 <%= search_form_for @q do |f| %>
-    <%= f.text_field :customer_name_cont, placeholder: "Customer Name", class: "input-medium search-query" %>
+    <%= f.text_field :customer_name_cont, placeholder: "Franchisee Name", class: "input-medium search-query" %>
     <%= f.submit "Search", class: "btn" %>
 <% end %>
             </div>
@@ -36,8 +36,8 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Customer type</th>
-    <th>Customer name</th>
+    <th>Franchisee type</th>
+    <th>Franchisee name</th>
     <th>Customer tax</th>
     <th>Vat registered</th>
     <th>Outlet code</th>
@@ -57,7 +57,7 @@
     <td><%= customer_maintenance.outlet_name %></td>
     <td><%= link_to 'Show', customer_maintenance, class: "btn btn-mini" %></td>
     <td><%= link_to 'Edit', edit_customer_maintenance_path(customer_maintenance), class: "btn btn-mini" %></td>
-    <td><%= link_to 'Delete', customer_maintenance, method: :delete, data: { confirm: 'Are you sure you want to delete this customer?' }, class: "btn btn-mini btn-danger" %></td>
+    <td><%= link_to 'Delete', customer_maintenance, method: :delete, data: { confirm: 'Are you sure you want to delete this franchisee?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

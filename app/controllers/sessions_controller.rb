@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     if customer && customer.authenticate(params[:session][:password])
       sign_in customer
       if Time.now.strftime("%H").to_i <= 12
+        if current_user.so_headers.last.order_status == "Delivered"
+          flash[:success] = "Good morning #{current_user.customer_name}! We would also like to inform you that your previous order has been delivered. If not, please contact us immediately to correct this mistake"
+        else
           flash[:success] = "Good morning #{current_user.customer_name}!"
+        end
         else
           if Time.now.strftime("%H").to_i >= 12 && Time.now.strftime("%H").to_i <= 18
             flash[:success] = "Good afternoon #{current_user.customer_name}!"

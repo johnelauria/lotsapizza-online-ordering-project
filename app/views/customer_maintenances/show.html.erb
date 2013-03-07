@@ -19,17 +19,17 @@
     <td><%= link_to header.order_date, header %></td>
     <td><%= sprintf("P%0.02f", header.grand_total) %></td>
     <% if header.order_status.nil? %>
-        <td>Pending...</td>
+        <td></td>
     <% else %>
         <td><%= header.order_status %></td>
     <% end %>
     <% if header.sales_invoice_num.nil? %>
-        <td>Pending...</td>
+        <td></td>
     <% else %>
     <td><%= header.sales_invoice_num %></td>
     <% end %>
     <% if header.sales_invoice_date.nil? %>
-        <td>Pending...</td>
+        <td></td>
     <% else %>
     <td><%= header.sales_invoice_date %></td>
     <% end %>
@@ -41,17 +41,17 @@
 <div class="tab-pane fade" id="profile_info">
   <table class="table">
     <tr>
-      <td><b>Customer type:</b></td>
+      <td><b>Franchisee type:</b></td>
       <td><%= @customer_maintenance.customer_type %></td>
     </tr>
 
 <tr>
-  <td><b>Customer name:</b></td>
+  <td><b>Franchisee name:</b></td>
   <td><%= @customer_maintenance.customer_name %></td>
 </tr>
 
 <tr>
-  <td><b>Customer tax:</b></td>
+  <td><b>Franchisee tax:</b></td>
   <td><%= @customer_maintenance.customer_tax_id %></td>
 </tr>
 

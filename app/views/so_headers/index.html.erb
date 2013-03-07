@@ -32,7 +32,6 @@
   </tr>
 
 <% @so_header.each do |so_header| %>
-    <%= will_paginate %>
     <% if so_header.grand_total != 0 %>
   <tr>
     <td><%= so_header.outlet_code %></td>
