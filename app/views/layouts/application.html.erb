@@ -15,7 +15,7 @@
       <% if signed_in? || admin? %>
         <li><%= link_to "Products", product_maintenances_path %></li>
         <% if admin? %>
-            <li><%= link_to "Customers", customer_maintenances_path %></li>
+            <li><%= link_to "Franchisees", customer_maintenances_path %></li>
             <li><%= link_to "Sales Orders", so_headers_path %></li>
         <% end %>
       <% end %>
