@@ -2,6 +2,9 @@ OnlineOrdering::Application.routes.draw do
 
 
 
+  resources :categories
+
+
   resources :admins
 
 

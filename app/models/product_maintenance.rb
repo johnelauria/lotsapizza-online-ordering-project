@@ -3,6 +3,7 @@ class ProductMaintenance < ActiveRecord::Base
 
   validates :product_code, presence: true, length: { maximum:3 }, uniqueness: true
   validates :product_description, :po_unit, :issue_unit, presence: true
+  validates :purchase_price, :selling_price, length: { maximum: 7 }
 
   def vat_deduction_value
     if self.subject_to_vat?

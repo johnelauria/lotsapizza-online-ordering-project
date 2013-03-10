@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="span6">
+
   <div class="field">
     <%= f.label :product_code %><br />
     <%= f.text_field :product_code, class: "input-mini" %> <span class="label label-info">3-digit alpha numeric</span>
@@ -20,8 +23,20 @@
     <%= f.text_area :product_description, rows: 5 %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
-    <%= f.select :category, "<option>Beverages</option><option>Boxes</option><option>Bread</option><option>Forms</option><option>Groceries</option><option>In can</option><option>Pizza Crust</option><option>Plastics</option><option>Toppings</option>".html_safe, prompt: "Select category" %>
+    <%= f.label :category %><small><%= link_to "Add Category", new_category_path %> | <a href="#categoryManage" data-toggle="tab">Manage Categories</a></small><br />
+    <div class="tab-content">
+      <div class="tab-pane" id="categoryManage">
+        <a href="#blank" data-toggle="tab" class="btn btn-mini">Close</a>
+        <%= render 'categories/index' %>
+      </div>
+      <div class="tab-pane active" id="blank">
+        <% Category.all.each do |category| %>
+        <%= f.radio_button :category, category.category %> <%= category.category %>
+        <br />
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="field">
     <%= f.label :po_unit %><br />
     <%= f.select :po_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
@@ -30,6 +45,8 @@
     <%= f.label :Quantity_on_hand %><br />
     <%= f.text_field :on_hand, class: "input-mini" %>
   </div>
+  </div>
+<div class="span6">
   <div class="field">
     <%= f.label :issue_unit %><br />
     <%= f.select :issue_unit, "<option>Case</option><option>Box</option><option>Pack</option><option>Can</option><option>etc</option>".html_safe, prompt: "Please Select a Unit" %>
@@ -58,6 +75,8 @@
     <%= f.label :sort_code %><br />
     <%= f.text_field :sort_code, class: "input-mini" %>
   </div>
+  </div>
+</div>
   <div class="actions">
     <%= f.submit "Save", class: "btn" %>
   </div>

@@ -24,17 +24,18 @@ pdf.table [
 end
 end
 
-pdf.table [["Additional Charges"]], header: true, column_widths: [500] do 
-  row(0).columns(0..3).font_style = :bold
+pdf.table [["Sub Total", "", "#{sprintf('P%0.02f', @so_header.total_order_amount)}"]], header: true, column_widths: [200,200,100] do 
+  row(0).columns(0..3).align = :center
+end
+
+pdf.table [["Additional Charge", "", "#{sprintf('P%0.02f', @so_header.msf_charge + @so_header.delivery_charge + @so_header.vat)}"]], header: true, column_widths: [200,200,100] do 
   row(0).columns(0..3).align = :center
 end
 
 pdf.table [
-  ["MSF Charge", "", "#{sprintf('P%0.02f', @so_header.customer_maintenance.msf_charge)}"],
-  ["Delivery Charge", "", "#{sprintf('P%0.02f', @so_header.customer_maintenance.delivery_charge)}"],
-  ["VAT", "", "#{sprintf('P%0.02f', @so_header.vat)}"],
   ["Grand Total", "", "#{sprintf('P%0.02f', @so_header.grand_total)}"]
 ], column_widths: [200, 200, 100] do
+  row(0).columns(0..3).font_style = :bold
   columns(0).align = :left
   columns(1..2).align = :right
   row(0).text_color = "333333"

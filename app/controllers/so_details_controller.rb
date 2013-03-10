@@ -48,6 +48,11 @@ class SoDetailsController < ApplicationController
   def create
     @so_detail = SoDetail.new(params[:so_detail])
 
+    if current_user.so_headers.last.so_details.find_by_product_code(@so_detail.product_code).present?
+        flash[:error] = "You have already ordered that product in your cart! Please be careful of accidentally ordering your products twice. To ensure that you are not mistakenly ordering the product twice, delete your previous order then enter the correct quantity"
+        redirect_to product_maintenances_path
+      else
+
     if ProductMaintenance.find_by_product_code(@so_detail.product_code).on_hand >= @so_detail.quantity
       respond_to do |format|
         if @so_detail.save
@@ -63,6 +68,7 @@ class SoDetailsController < ApplicationController
     else
       flash[:error] = "Sorry. We currently have insufficient supply of the product you ordered. We'll try to stash up our supply ASAP to resolve your concerns."
       redirect_to product_maintenances_path
+      end
     end
   end
 

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216113934) do
+ActiveRecord::Schema.define(:version => 20130309094839) do
 
   create_table "admins", :force => true do |t|
     t.string "name"
     t.string "username"
     t.string "password_digest"
     t.string "remember_token"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "category"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "customer_maintenances", :force => true do |t|

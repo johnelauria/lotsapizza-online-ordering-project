@@ -82,6 +82,7 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances/new.json
   def new
     @product_maintenance = ProductMaintenance.new
+    @categories = Category.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -92,6 +93,7 @@ class ProductMaintenancesController < ApplicationController
   # GET /product_maintenances/1/edit
   def edit
     @product_maintenance = ProductMaintenance.find(params[:id])
+    @categories = Category.all
   end
 
   # POST /product_maintenances

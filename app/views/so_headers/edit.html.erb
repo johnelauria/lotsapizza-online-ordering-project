@@ -1,6 +1,12 @@
 <h1>Update Order</h1>
+<br>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @so_header %> |
-<%= link_to 'Back', so_headers_path %>
+<div class="row">
+		<div class="span6">
+		Updating order of <%= @so_header.customer_maintenance.customer_name %> from <%= @so_header.customer_maintenance.outlet_address %><br />
+		<%= render 'orders' %>
+	</div>
+	<div class="span3 offset1">
+		<%= render 'form' %>
+	</div>
+</div>

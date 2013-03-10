@@ -1,5 +1,4 @@
-
-<h1>Products Available</h1>
+<h1>Available Products</h1>
 <% if admin? %>
 <%= link_to 'Create New Product', new_product_maintenance_path, class: "myButton btn-mini", style: "float:right;" %>
 <% end %>
@@ -47,7 +46,6 @@
     <th>Eligible for discount</th>
     <% end %>
     <th>Issue unit</th>
-    <th>Purchase price</th>
     <th>Selling price</th>
     <th></th>
   </tr>
@@ -65,8 +63,6 @@
     <td><%= product_maintenance.eligible_for_discount ? 'yes' : 'no' %></td>
     <% end %>
     <td><%= product_maintenance.issue_unit %></td>
-    
-    <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
     <% if signed_in? %>
 

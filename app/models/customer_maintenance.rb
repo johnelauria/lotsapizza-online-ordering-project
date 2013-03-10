@@ -6,10 +6,12 @@ class CustomerMaintenance < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_CUSTOMER_TAX_ID = /[\d]{3}-[\d]{3}-[\d]{3}-[\d]{3}/
 
-  validates :customer_type, :customer_name, :vat_registered, :contact_name, :primary_phone, :outlet_name, :password, :password_confirmation, presence: true
-  validates :customer_tax_id, format: { with: VALID_CUSTOMER_TAX_ID }
+  validates :customer_type, :customer_name, :contact_name, :primary_phone, :outlet_name, :password, :password_confirmation, presence: true
+  validates :customer_tax_id, format: { with: VALID_CUSTOMER_TAX_ID }, length: { minimum: 15, maximum: 15}
   validates :email_address, format: { with: VALID_EMAIL_REGEX }
   validates :outlet_code, uniqueness: true, presence: true, length: { minimum: 3, maximum: 3 }
+  validates :mobile_num, length: { minimum: 11, maximum: 11 }
+  validates :primary_phone, length: { maximum: 15 }
 
   before_save :create_remember_token
 

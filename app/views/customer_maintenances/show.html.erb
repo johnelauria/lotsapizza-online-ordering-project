@@ -121,11 +121,6 @@
 </tr>
 
 <tr>
-  <td><b>Terms: </b></td>
-  <td><%= @customer_maintenance.terms %></td>
-</tr>
-
-<tr>
   <td><b>MSF Charge:</b> </td>
   <td><%= sprintf("P%0.02f", @customer_maintenance.msf_charge) %> computed by <%= @customer_maintenance.msf_charge_computation %></td>
 </tr>
@@ -138,41 +133,6 @@
 <tr>
   <td><b>Status:</b> </td>
   <td><%= @customer_maintenance.status %></td>
-</tr>
-
-<tr>
-  <td><b>Order Schedule:</b> </td>
-  <td><%= @customer_maintenance.order_schedule %></td>
-</tr>
-
-<tr>
-  <td><b>Delivery Group Code:</b> </td>
- <td> <%= @customer_maintenance.delivery_group_code %></td>
-</tr>
-
-<tr>
-  <td><b>Production Group Code:</b> </td>
-  <td><%= @customer_maintenance.production_group_code %></td>
-</tr>
-
-<tr>
-  <td><b>Delivery Notes:</b> </td>
-  <td><%= @customer_maintenance.delivery_notes %></td>
-</tr>
-
-<tr>
-  <td><b>Additional Notes:</b> </td>
-  <td><%= @customer_maintenance.additional_notes %></td>
-</tr>
-
-<tr>
-  <td><b>Assess Finance / Late Charges:</b> </td>
-  <td><%= @customer_maintenance.assess_finance_late_charges %></td>
-</tr>
-
-<tr>
-  <td><b>Finance / Late Charge:</b> </td>
-  <td><%= sprintf("P%0.02f", @customer_maintenance.finance_late_charges) unless @customer_maintenance.finance_late_charges.nil? %></td>
 </tr>
 
 <tr>
