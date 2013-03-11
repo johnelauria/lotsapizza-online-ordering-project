@@ -63,7 +63,7 @@
     <td><%= product_maintenance.eligible_for_discount ? 'yes' : 'no' %></td>
     <% end %>
     <td><%= product_maintenance.issue_unit %></td>
-    <td><%= sprintf("P%0.02f", product_maintenance.selling_price) %></td>
+    <td><%= sprintf("P%0.02f", product_maintenance.purchase_price) %></td>
     <% if signed_in? %>
 
     <%= form_for(@so_detail) do |f| %>
@@ -144,21 +144,7 @@
           <td><strong>Additional charges:</strong></td>
           <td></td>
           <td>MSF charge: </td>
-          <td><%= sprintf("P%0.02f", current_user.msf_charge) %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>Delivery Charge: </td>
-          <td><%= sprintf("P%0.02f", current_user.delivery_charge) %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>VAT: </td>
-          <td><%= sprintf("P%0.02f", current_user.so_headers.last.vat) %></td>
+          <td><%= sprintf("P%0.02f", current_user.msf_charge + current_user.delivery_charge + current_user.so_headers.last.vat) %></td>
           <td></td>
         </tr>
         <tr>

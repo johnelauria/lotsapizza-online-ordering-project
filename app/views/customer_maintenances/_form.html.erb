@@ -12,6 +12,7 @@
 
   <div class="row">
     <div class="span6">
+      <% if admin? %>
   <div class="field">
     <%= f.label :Franchise_type %><br />
     <%= f.select :customer_type, "<option>Company-Owned</option><option>Franchised</option><option>MetroPizza</option><option>Events</option><option>Others</option>".html_safe, prompt: "Please select customer type" %>
@@ -28,6 +29,7 @@
     Vat Registered 
     <%= f.check_box :vat_registered %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.label :contact_name %><br />
     <%= f.text_field :contact_name %>
@@ -63,6 +65,7 @@
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation %>
     </div>
+    <% if admin? %>
   <div class="field">
     <%= f.label :outlet_name %><br />
     <%= f.text_field :outlet_name %>
@@ -115,6 +118,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
     <div class="actions">
     <%= f.submit "Save", class: "btn" %>
