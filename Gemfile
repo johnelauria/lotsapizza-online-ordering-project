@@ -7,6 +7,7 @@ gem 'will_paginate'
 gem 'bcrypt-ruby'
 gem 'ransack'
 gem 'prawn_plus'
+gem 'bundler'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

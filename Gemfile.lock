@@ -136,6 +136,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass
   bootstrap-will_paginate
+  bundler
   coffee-rails (~> 3.2.1)
   jquery-rails
   pg
